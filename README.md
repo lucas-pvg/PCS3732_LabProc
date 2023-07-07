@@ -12,7 +12,9 @@
 
 -  `cd backend/`
 
--  `pipenv install --dev`
+-  `py -m pip install pipenv`
+
+-  `pipenv install --dev --python 3.10`
 
 -  `pipenv run pre-commit install` 
 
