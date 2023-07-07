@@ -5,7 +5,7 @@ repos:
         name: isort
         stages: [commit]
         language: system
-        entry: cd backend && pipenv run isort
+        entry: pipenv run isort
         types: [python]
 
       - id: black
