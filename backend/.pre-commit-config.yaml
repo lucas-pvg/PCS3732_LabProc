@@ -6,9 +6,6 @@ repos:
       - id: check-case-conflict
       - id: check-merge-conflict
       - id: debug-statements
-      - id: end-of-file-fixer
-        exclude: ^docs/
-      - id: trailing-whitespace
 
   - repo: https://github.com/pycqa/flake8
     rev: 3.9.2
