@@ -1,3 +1,4 @@
+files: backend/
 repos:
   - repo: local
     hooks:
