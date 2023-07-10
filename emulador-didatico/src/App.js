@@ -6,7 +6,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <a>Nosso Emulador Didatico de Instruções ARM</a>
+        <h1>Emulador yay</h1>
       </header>
     </div>
   );
