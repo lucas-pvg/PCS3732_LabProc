@@ -1,2 +1,6 @@
+# Backend
 backend/db.sqlite3
 **/__pycache__/**
+
+# Frontend
+frontend/node_modules
