@@ -2,19 +2,29 @@
 
 Emulador didático de instruções ARM;
 
-## Configuração do frontend
-
-- Instale o NodeJS pelo website: https://nodejs.org/en
-- Entre na pasta do projeto PCS3732_LabProc e rode o seguinte comando para instalar as dependências do node: `npm install`
-- Para subir o ambiente entre na pasta emulador-didatico e rode o comando: `npm start`
-
-## Configuração do backend
-
-### Automated Installation
+## Configuração automática
 
 - `./dev_setup.bat`
 
-### Manual Installation
+## Configuração do frontend
+
+### Instalação por .exe
+
+- Instale o NodeJS pelo website: https://nodejs.org/en/blog/release/v19.5.0
+- Entre na pasta do projeto PCS3732_LabProc/frontend e rode o seguinte comando para instalar as dependências do node: `npm install`
+- Para subir o ambiente entre na pasta emulador-didatico e rode o comando: `npm start`
+
+### Instalação por linha de comando
+
+- Instale o nvm: https://github.com/coreybutler/nvm-windows/releases
+- Pra confirmar a instalação rode `nvm -v`
+- `nvm install 19.5.0`
+- `nvm use 19.5.0`
+- `cd frontend`
+- `npm install`
+- `npm start`
+
+## Configuração do backend
 
 - `cd backend/`
 
