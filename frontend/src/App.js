@@ -1,13 +1,14 @@
-import logo from "./logo.svg";
+import React from "react";
 import "./App.css";
+
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>Emulador yay</h1>
-      </header>
+      <p>Navbar</p>
+      <Outlet />
+      <p>Footer</p>
     </div>
   );
 }

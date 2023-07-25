@@ -12,6 +12,7 @@ Emulador didático de instruções ARM;
 
 - Instale o NodeJS pelo website: https://nodejs.org/en/blog/release/v19.5.0
 - Entre na pasta do projeto PCS3732_LabProc/frontend e rode o seguinte comando para instalar as dependências do node: `npm install`
+- Após isso, rode ainda nessa pasta o comando: `npm install react-router-dom`
 - Para subir o ambiente entre na pasta emulador-didatico e rode o comando: `npm start`
 
 ### Instalação por linha de comando
