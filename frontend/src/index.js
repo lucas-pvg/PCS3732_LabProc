@@ -10,6 +10,9 @@ import HomePage from "./routes/homePage";
 import AboutPage from "./routes/aboutPage";
 import ArithmeticsPage from "./routes/arithmeticsPage";
 import ErrorPage from "./routes/errorPage";
+import BranchPage from "./routes/branchPage";
+import QuizPage from "./routes/quizPage";
+import MoreInfoPage from "./routes/moreInfoPage";
 
 const router = createBrowserRouter([
   {
@@ -26,8 +29,20 @@ const router = createBrowserRouter([
         element: <AboutPage />,
       },
       {
-        path: "arithmetics-page",
+        path: "arithmetics",
         element: <ArithmeticsPage />,
+      },
+      {
+        path: "branch",
+        element: <BranchPage />,
+      },
+      {
+        path: "quiz",
+        element: <QuizPage />,
+      },
+      {
+        path: "more-info",
+        element: <MoreInfoPage />,
       },
     ],
   },

@@ -4,6 +4,7 @@ const AboutPage = () => {
   return (
     <div>
       <h1>Quem somos nós</h1>
+      <p>AAAAAAAAAAAAAAAAAAA</p>
     </div>
   );
 };
