@@ -1,8 +1,5 @@
+import numpy as np
 from django.db import models
-
-
-class Memory(models.Model):
-    pass
 
 
 class Register(models.Model):
@@ -15,3 +12,8 @@ class Register(models.Model):
     @property
     def data_as_integer(self):
         return int(self.data_binary, 0)
+
+    @property
+    def data_as_array(self):
+        data_binary_no_prefix = self.data_binary[2:]
+        return np.array(list(data_binary_no_prefix), dtype=int)
