@@ -4,18 +4,47 @@ from rest_framework.viewsets import ModelViewSet
 
 from .models import Register
 from .serializers import RegisterSerializer
+from .utils import execute_operation
 
 
 class RegisterView(ModelViewSet):
     def list(self, request):
         registers = Register.objects.all()
 
-        serializer = RegisterSerializer(data=registers)
+        serializer = RegisterSerializer(data=registers, many=True)
 
         if not serializer.is_valid():
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
         return Response(serializer.validated_data, status=status.HTTP_200_OK)
+
+    def get(self, request, pk):
+        register = Register.objects.get(id=pk)
+
+        serializer = RegisterSerializer(data=register)
+
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        return Response(serializer.validated_data, status=status.HTTP_200_OK)
+
+
+class ArmInstructionsView(ModelViewSet):
+    def get(self, request):
+        data = request.data
+
+        # TODO: conferir se esses serao os nomes passados pelo front
+        operation = data.get("operation")
+        register_destination = data.get("Rd")
+        first_operand = data.get("firstOperand")
+        second_operand = data.get("secondOperand", "not valid")
+
+        try:
+            return execute_operation(
+                operation, register_destination, first_operand, second_operand
+            )
+        except Exception:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 # Passo a passo:
