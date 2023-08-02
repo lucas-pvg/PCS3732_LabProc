@@ -5,7 +5,7 @@ from django.db import models
 
 class Register(models.Model):
     id = models.PositiveIntegerField(primary_key=True, unique=True)
-    label = models.CharField()
+    label = models.CharField(max_length=5)
     data_integer = models.IntegerField(
         default=0,
         validators=[MaxValueValidator(2147483647), MinValueValidator(-2147483647)],
