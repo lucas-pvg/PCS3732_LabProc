@@ -1,3 +1,23 @@
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.viewsets import ModelViewSet
+
+from .models import Register
+from .serializers import RegisterSerializer
+
+
+class RegisterView(ModelViewSet):
+    def list(self, request):
+        registers = Register.objects.all()
+
+        serializer = RegisterSerializer(data=registers)
+
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        return Response(serializer.validated_data, status=status.HTTP_200_OK)
+
+
 # Passo a passo:
 # - verificar condicao pra ver se executa
 # - verificar elementos
