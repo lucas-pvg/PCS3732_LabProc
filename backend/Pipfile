@@ -5,11 +5,14 @@ name = "pypi"
 
 [packages]
 django = "*"
+numpy = "*"
+djangorestframework = "*"
 
 [dev-packages]
 black = "*"
 isort = "*"
 flake8 = "*"
+pre-commit = "*"
 
 [requires]
 python_version = "3.10"
