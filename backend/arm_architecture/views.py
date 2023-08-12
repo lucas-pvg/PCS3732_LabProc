@@ -4,7 +4,7 @@ from rest_framework.viewsets import ModelViewSet
 
 from .models import Register
 from .serializers import RegisterSerializer
-from .utils import execute_operation
+from .utils import execute_operation, update_or_create_register
 
 
 class RegisterView(ModelViewSet):
@@ -21,6 +21,17 @@ class RegisterView(ModelViewSet):
         serializer = RegisterSerializer(register)
 
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def post(self, request):
+        serializer = RegisterSerializer(data=request.data, many=True)
+
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        for register_info in serializer.validated_data:
+            update_or_create_register(register_info)
+
+        return Response(status=status.HTTP_200_OK)
 
 
 class ArmInstructionsView(ModelViewSet):

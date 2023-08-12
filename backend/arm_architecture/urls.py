@@ -14,6 +14,8 @@ urlpatterns = [
         name="detail",
     ),
     path(
-        "register/", RegisterView.as_view(actions={"get": "list"}), name="register_list"
+        "register/",
+        RegisterView.as_view(actions={"get": "list", "post": "post"}),
+        name="register_list",
     ),
 ]
