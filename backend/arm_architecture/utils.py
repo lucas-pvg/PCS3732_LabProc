@@ -43,28 +43,28 @@ def identify_operation(operation, first_operand, second_operand):
     if operation in ["ADD"]:
         try:
             result = first_operand.value + second_operand.value
-        except Exception:
+        except AttributeError:
             result = first_operand.value + second_operand["value"]
         return result
 
     if operation in ["SUB"]:
         try:
             result = first_operand.value - second_operand.value
-        except Exception:
+        except AttributeError:
             result = first_operand.value - second_operand["value"]
         return result
 
     if operation in ["RSB"]:
         try:
             result = second_operand.value - first_operand.value
-        except Exception:
+        except AttributeError:
             result = second_operand["value"] - first_operand.value
         return result
 
     if operation in ["MUL"]:
         try:
             result = first_operand.value * second_operand.value
-        except Exception:
+        except AttributeError:
             result = first_operand.value * second_operand["value"]
         return result
 
