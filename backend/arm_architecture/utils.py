@@ -41,19 +41,31 @@ def operand_register_or_immediate(operand):
 
 def identify_operation(operation, first_operand, second_operand):
     if operation in ["ADD"]:
-        result = first_operand.value + second_operand.value
+        try:
+            result = first_operand.value + second_operand.value
+        except Exception:
+            result = first_operand.value + second_operand["value"]
         return result
 
     if operation in ["SUB"]:
-        result = first_operand.value - second_operand.value
+        try:
+            result = first_operand.value - second_operand.value
+        except Exception:
+            result = first_operand.value - second_operand["value"]
         return result
 
     if operation in ["RSB"]:
-        result = second_operand.value - first_operand.value
+        try:
+            result = second_operand.value - first_operand.value
+        except Exception:
+            result = second_operand["value"] - first_operand.value
         return result
 
     if operation in ["MUL"]:
-        result = first_operand.value * second_operand.value
+        try:
+            result = first_operand.value * second_operand.value
+        except Exception:
+            result = first_operand.value * second_operand["value"]
         return result
 
     return "Not valid operation"
