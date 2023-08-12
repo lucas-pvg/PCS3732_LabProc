@@ -29,7 +29,7 @@ class ArmInstructionsView(ModelViewSet):
 
         # TODO: conferir se esses serao os nomes passados pelo front
         operation = data.get("operation")
-        register_destination = data.get("Rd")
+        register_destination = data.get("registerDestination")
         first_operand = data.get("firstOperand")
         second_operand = data.get("secondOperand", "not valid")
 
@@ -37,8 +37,8 @@ class ArmInstructionsView(ModelViewSet):
             return execute_operation(
                 operation, register_destination, first_operand, second_operand
             )
-        except Exception:
-            return Response(status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response(str(e), status=status.HTTP_400_BAD_REQUEST)
 
 
 # Passo a passo:

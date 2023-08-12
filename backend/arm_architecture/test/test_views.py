@@ -33,14 +33,11 @@ class ArithmeticInstructionsTest(TestCase):
             self.operation,
             data={
                 "operation": "ADD",
-                "register_detination": {"label": "R0"},
-                "firstOperand": {
-                    "label": "R0",
-                    "value": 1,
-                },
-                "secondOperand": {"label": "R1", "value": 2},
+                "registerDestination": {"label": "R0"},
+                "firstOperand": {"label": "R0", "value": "#1"},
+                "secondOperand": {"label": "R1", "value": "#2"},
             },
         )
 
         self.assertEquals(response.status_code, 200)
-        self.assertEqual(self.register_zero.data_integer, 3)
+        self.assertEqual(self.register_zero.value, 3)
