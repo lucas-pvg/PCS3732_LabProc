@@ -6,4 +6,4 @@ from .models import Register
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = Register
-        fields = "__all__"
+        fields = ["label", "data_integer"]

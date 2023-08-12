@@ -11,22 +11,16 @@ class RegisterView(ModelViewSet):
     def list(self, request):
         registers = Register.objects.all()
 
-        serializer = RegisterSerializer(data=registers, many=True)
+        serializer = RegisterSerializer(registers, many=True)
 
-        if not serializer.is_valid():
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-        return Response(serializer.validated_data, status=status.HTTP_200_OK)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     def get(self, request, pk):
-        register = Register.objects.get(id=pk)
+        register = Register.objects.get(label="R" + str(pk))
 
-        serializer = RegisterSerializer(data=register)
+        serializer = RegisterSerializer(register)
 
-        if not serializer.is_valid():
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-        return Response(serializer.validated_data, status=status.HTTP_200_OK)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 class ArmInstructionsView(ModelViewSet):
