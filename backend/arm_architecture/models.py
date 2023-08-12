@@ -4,7 +4,6 @@ from django.db import models
 
 
 class Register(models.Model):
-    id = models.PositiveIntegerField(primary_key=True, unique=True)
     label = models.CharField(max_length=5)
     data_integer = models.IntegerField(
         default=0,

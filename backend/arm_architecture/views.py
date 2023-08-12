@@ -30,7 +30,7 @@ class RegisterView(ModelViewSet):
 
 
 class ArmInstructionsView(ModelViewSet):
-    def get(self, request):
+    def post(self, request):
         data = request.data
 
         # TODO: conferir se esses serao os nomes passados pelo front

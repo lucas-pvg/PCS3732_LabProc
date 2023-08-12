@@ -17,14 +17,18 @@ def update_register(register_info):
     return register
 
 
+# TODO: verificação de passagem de dados inválidos no campo imediato
 def operand_register_or_immediate(operand):
-    if ["#", "0b", "0x"] in operand:
-        return operand
+    if "#" in operand:
+        return operand[1:]
+
+    if ["0b", "0x"] in operand:
+        return operand[2:]
 
     return update_register(operand)
 
 
-def identify_operation(operation, register_destinaton, first_operand, second_operand):
+def identify_operation(operation, first_operand, second_operand):
     if operation in ["ADD"]:
         try:
             result = first_operand.data_integer + second_operand.data_integer
