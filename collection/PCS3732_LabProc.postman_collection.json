@@ -1,0 +1,111 @@
+{
+	"info": {
+		"_postman_id": "35d5133e-d7e3-47de-bda7-f35287e23ef0",
+		"name": "PCS3732_LabProc",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29103297"
+	},
+	"item": [
+		{
+			"name": "Registers Query",
+			"item": [
+				{
+					"name": "Register List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{backend_url}}/register/",
+							"host": [
+								"{{backend_url}}"
+							],
+							"path": [
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register Detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{backend_url}}/register/1/",
+							"host": [
+								"{{backend_url}}"
+							],
+							"path": [
+								"register",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register Update All",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"label\": \"R0\",\r\n        \"value\": \"#0\"\r\n    },\r\n    {\r\n        \"label\": \"R1\",\r\n        \"value\": \"#0\"\r\n    },\r\n    {\r\n        \"label\": \"R2\",\r\n        \"value\": \"#0\"\r\n    },\r\n    {\r\n        \"label\": \"R3\",\r\n        \"value\": \"#0\"\r\n    },\r\n    {\r\n        \"label\": \"R4\",\r\n        \"value\": \"#0\"\r\n    },\r\n    {\r\n        \"label\": \"R5\",\r\n        \"value\": \"#0\"\r\n    },\r\n    {\r\n        \"label\": \"R6\",\r\n        \"value\": \"#0\"\r\n    },\r\n    {\r\n        \"label\": \"R7\",\r\n        \"value\": \"#0\"\r\n    },\r\n    {\r\n        \"label\": \"R8\",\r\n        \"value\": \"#0\"\r\n    },\r\n    {\r\n        \"label\": \"R9\",\r\n        \"value\": \"#0\"\r\n    },\r\n    {\r\n        \"label\": \"R10\",\r\n        \"value\": \"#0\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{backend_url}}/register/",
+							"host": [
+								"{{backend_url}}"
+							],
+							"path": [
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Arithmetic Instructions",
+			"item": [
+				{
+					"name": "Operation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"operation\": \"MUL\",\r\n    \"registerDestination\": {\"label\": \"R0\"},\r\n    \"firstOperand\": {\r\n        \"label\": \"R0\",\r\n        \"value\": \"#1\"\r\n    },\r\n    \"secondOperand\": {\"value\": \"0x10\"}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{backend_url}}/operation/",
+							"host": [
+								"{{backend_url}}"
+							],
+							"path": [
+								"operation",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
