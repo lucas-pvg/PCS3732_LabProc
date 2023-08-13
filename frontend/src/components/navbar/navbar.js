@@ -1,35 +1,24 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
-import { BsJournalBookmark } from "react-icons/bs";
-
 import "./navbar.css";
 
-const Navbar = () => {
-  return (
-    <div>
-      <nav className="nav">
-        <Link to="/" className="logo"><BsJournalBookmark/>PCS3732</Link>
-        <ul>
-          <li>
-            <Link to="arithmetics" className="route">Aritméticas</Link>
-          </li>
-          <li>
-            <Link to="branch">Desvio</Link>
-          </li>
-          <li>
-            <Link to="quiz">Quiz</Link>
-          </li>
-          <li>
-            <Link to="more-info">Mais Informações</Link>
-          </li>
-          <li>
-            <Link to="about">Quem somos nós?</Link>
-          </li>
-        </ul>
+function Navbar() {
+   return (
+      <nav className="navbar">
+         <Link to="/" className="logo route">
+            <img src={require("../../images/cpu.png")} />
+            <span>PCS3732</span>
+         </Link>
+
+         <ul>
+            <li><Link to="arithmetics" className="route">Aritméticas</Link></li>
+            <li><Link to="branch" className="route">Desvio</Link></li>
+            <li><Link to="quiz" className="route">Quiz</Link></li>
+            <li><Link to="moreInfo" className="route">Saiba mais</Link></li>
+            <li><Link to="about" className="route">Quem somos nós?</Link></li>
+         </ul>
       </nav>
-    </div>
-  );
-};
+   );
+}
 
 export default Navbar;
