@@ -5,9 +5,10 @@ import "./footer.css";
 
 const Footer = () => {
     return (
-        <div className="footer">
-            <footer>
-                <span className="copyright"><AiOutlineCopyright/> 2023</span>
+        <div>
+            <footer className="footer">
+                <span className="copyright"><AiOutlineCopyright/> 2023 - </span>
+                <span className="copyright">Zero direitos reservados. Pode copiar sim.</span>
             </footer>
         </div>
     );
