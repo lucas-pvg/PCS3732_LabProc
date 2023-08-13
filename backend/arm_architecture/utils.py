@@ -91,6 +91,20 @@ def identify_operation(operation, first_operand, second_operand):
     return "Not valid operation"
 
 
+def update_cpsr(result):
+    cpsr_register = Register.objects.get_or_create(label="CPSR")
+    cpsr_value = 0
+
+    if result < 0:
+        cpsr_value += 2 ^ 31
+    if result == 0:
+        cpsr_value += 2 ^ 30
+
+    cpsr_register.value = cpsr_value
+
+    cpsr_register.save()
+
+
 def execute_operation(operation, register_destination, first_operand, second_operand):
     register_destination_label = register_destination.get("label")
 
@@ -103,5 +117,8 @@ def execute_operation(operation, register_destination, first_operand, second_ope
 
     register_destination.value = result
     register_destination.save()
+
+    if operation[-1] == "S":
+        update_cpsr(result)
 
     return Response(status=status.HTTP_200_OK)
