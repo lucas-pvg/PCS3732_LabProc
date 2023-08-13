@@ -1,18 +1,13 @@
 import React from "react";
 
-import Dropdown from "../components/dropdown/dropdown";
+import Dropdown from "../../components/dropdown/dropdown";
 
-const OtherInstructionsPage = () => {
+const BranchPage = () => {
     const operation = [
-        { value: "AND", label: "AND" },
-        { value: "EOR", label: "EOR" },
-        { value: "ORR", label: "ORR" },
-        { value: "BIC", label: "BIC" },
-        { value: "MOV", label: "MOV" },
-        { value: "MVN", label: "MVN" },
-        { value: "CLZ", label: "CLZ" },
-        { value: "CMP", label: "CMP" },
-        { value: "CMN", label: "CMN" },
+        { value: "B", label: "B" },
+        { value: "BL", label: "BL" },
+        { value: "BX", label: "BX" },
+        { value: "BLX", label: "BLX" },
     ];
 
     const register = [
@@ -37,7 +32,7 @@ const OtherInstructionsPage = () => {
 
     return (
         <div>
-            <h1>Demais Instruções</h1>
+            <h1>Instruções de Desvio</h1>
             <Dropdown props={operation} placeholder={"Operação"} />
             <Dropdown props={register} placeholder={"Destino"} />
             <Dropdown props={register} placeholder={"Primeiro Operando"} />
@@ -46,4 +41,4 @@ const OtherInstructionsPage = () => {
     );
 };
 
-export default OtherInstructionsPage;
+export default BranchPage;

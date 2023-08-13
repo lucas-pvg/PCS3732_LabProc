@@ -1,13 +1,16 @@
 import React from "react";
+// import { useState } from "react";
 
-import Dropdown from "../components/dropdown/dropdown";
+import Dropdown from "../../components/dropdown/dropdown";
+import Switch from "../../components/switch/switch";
 
-const BranchPage = () => {
+const ArithmeticsPage = () => {
     const operation = [
-        { value: "B", label: "B" },
-        { value: "BL", label: "BL" },
-        { value: "BX", label: "BX" },
-        { value: "BLX", label: "BLX" },
+        { value: "ADD", label: "ADD" },
+        { value: "SUB", label: "SUB" },
+        { value: "RSB", label: "RSB" },
+        { value: "MUL", label: "MUL" },
+        { value: "MLA", label: "MLA" },
     ];
 
     const register = [
@@ -32,13 +35,14 @@ const BranchPage = () => {
 
     return (
         <div>
-            <h1>Instruções de Desvio</h1>
-            <Dropdown props={operation} placeholder={"Operação"} />
-            <Dropdown props={register} placeholder={"Destino"} />
-            <Dropdown props={register} placeholder={"Primeiro Operando"} />
-            <Dropdown props={register} placeholder={"Segundo Operando"} />
+            <h1>Instruções Aritméticas</h1>
+            <Switch name="Imediato"></Switch>
+            <Dropdown options={operation} placeholder="Operação" />
+            <Dropdown options={register} placeholder="Destino" />
+            <Dropdown options={register} placeholder="Primeiro Operando" />
+            <Dropdown options={register} placeholder="Segundo Operando" />
         </div>
     );
 };
 
-export default BranchPage;
+export default ArithmeticsPage;
