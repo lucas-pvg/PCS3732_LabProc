@@ -43,41 +43,41 @@ def operand_register_or_immediate(operand):
 
 
 def identify_operation(operation, first_operand, second_operand):
-    if operation in ["ADD"]:
+    if operation in ["ADD", "ADDS"]:
         try:
             result = first_operand.value + second_operand.value
         except AttributeError:
             result = first_operand.value + second_operand["value"]
         return result
 
-    if operation in ["SUB"]:
+    if operation in ["SUB", "SUBS"]:
         try:
             result = first_operand.value - second_operand.value
         except AttributeError:
             result = first_operand.value - second_operand["value"]
         return result
 
-    if operation in ["RSB"]:
+    if operation in ["RSB", "RSBS"]:
         try:
             result = second_operand.value - first_operand.value
         except AttributeError:
             result = second_operand["value"] - first_operand.value
         return result
 
-    if operation in ["MUL"]:
+    if operation in ["MUL", "MULS"]:
         try:
             result = first_operand.value * second_operand.value
         except AttributeError:
             result = first_operand.value * second_operand["value"]
         return result
 
-    if operation in ["MOV"]:
+    if operation in ["MOV", "MOVS"]:
         return first_operand["value"]
 
-    if operation in ["MVN"]:
+    if operation in ["MVN", "MVNS"]:
         return ~(first_operand["value"])
 
-    if operation in ["CLZ"]:
+    if operation in ["CLZ", "CLZS"]:
         decimal = first_operand["value"]
         value = decimal ^ (decimal - 1) >> 1
         leading_zeroes = 32
