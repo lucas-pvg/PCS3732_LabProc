@@ -42,7 +42,7 @@ class ArmInstructionsView(ModelViewSet):
         operation = data.get("operation")
         register_destination = data.get("registerDestination")
         first_operand = data.get("firstOperand")
-        second_operand = data.get("secondOperand", "not valid")
+        second_operand = data.get("secondOperand", None)
 
         try:
             return execute_operation(

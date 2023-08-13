@@ -31,6 +31,9 @@ def update_or_create_register(register_info):
 
 # TODO: verificação de passagem de dados inválidos no campo imediato
 def operand_register_or_immediate(operand):
+    if operand is None:
+        return None
+
     if "label" not in operand:
         immediate_value = convert_to_integer(operand.get("value"))
         operand["value"] = immediate_value
@@ -68,21 +71,32 @@ def identify_operation(operation, first_operand, second_operand):
             result = first_operand.value * second_operand["value"]
         return result
 
+    if operation in ["MOV"]:
+        return first_operand["value"]
+
+    if operation in ["MVN"]:
+        return ~(first_operand["value"])
+
+    if operation in ["CLZ"]:
+        decimal = first_operand["value"]
+        value = decimal ^ (decimal - 1) >> 1
+        leading_zeroes = 32
+
+        while value:
+            value >>= 1
+            leading_zeroes -= 1
+
+        return leading_zeroes
+
     return "Not valid operation"
 
 
 def execute_operation(operation, register_destination, first_operand, second_operand):
     register_destination_label = register_destination.get("label")
 
-    first_operand_label = first_operand.get("label")
-    first_operand_value = convert_to_integer(first_operand.get("value"))
-
     register_destination = Register.objects.get(label=register_destination_label)
 
-    first_operand = Register.objects.get(label=first_operand_label)
-    first_operand.value = first_operand_value
-    first_operand.save()
-
+    first_operand = operand_register_or_immediate(first_operand)
     second_operand = operand_register_or_immediate(second_operand)
 
     result = identify_operation(operation, first_operand, second_operand)
