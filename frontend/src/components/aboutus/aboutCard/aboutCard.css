@@ -1,0 +1,58 @@
+.about-card {
+    display: flex;
+    gap: 3rem;
+    justify-content:center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 15rem 2rem 10rem;
+    color: #404040;
+}
+
+.about-card .image {
+    background-size: cover;
+    border: 5px solid #E8D7F1;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 50%;
+    height: 15rem;
+    width: 15rem;
+}
+
+.about-card .text {
+    width: 60%;
+}
+
+.about-card .name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+}
+
+.about-card .info {
+    font-family: 'Inconsolata', monospace;
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 2rem;
+    text-align: justify;
+    width: 100%;
+}
+
+.right {
+    padding: 0 10rem 2rem 15rem;
+    flex-direction: row-reverse;
+    text-align: end;
+}
+
+.right .info {
+    text-align-last: right;
+}
+
+.about-card .soph {
+    background-image: url("../../../images/soph.jpeg");
+}
+
+.about-card .pedro {
+    background-image: url("../../../images/pedro.jpeg");
+}
+
+.about-card .bacic {
+    background-image: url("../../../images/bacic.jpeg");
+}

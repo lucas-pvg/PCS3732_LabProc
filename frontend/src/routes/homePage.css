@@ -1,0 +1,49 @@
+.home {
+    height: 100vh;
+    width: 100vw;
+}
+
+.home {
+    background-image: url("../images/home-background.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.home .content {
+    height: 80%;
+    padding-left: 7rem;
+    display: grid;
+    grid-template-columns: 3fr .5fr 3fr;
+    grid-template-rows: 1fr 2.8fr 1.2fr 1fr;
+    align-items: center;
+    grid-template-areas:
+        ". . ."
+        "title . ."
+        "stitle . ."
+        "but but ."
+}
+
+.home .title {
+    grid-area: title;
+}
+
+.home .subtitle {
+    grid-area: stitle;
+    color: #404040;
+    font-family: 'Inconsolata', monospace;
+    font-size: 1.8rem;
+    font-weight: 300;
+}
+
+.home .image {
+    grid-area: image;
+    align-self: center;
+    height: 35rem;
+    width: 35rem;
+}
+
+.home .exp-but {
+    grid-area: but;
+    align-self: flex-start;
+}
