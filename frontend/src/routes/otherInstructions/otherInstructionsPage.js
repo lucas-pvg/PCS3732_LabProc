@@ -1,6 +1,9 @@
 import React from "react";
 
 import Dropdown from "../../components/dropdown/dropdown";
+import Navbar from "../../components/navbar/navbar";
+
+import "./otherInstructionsPage.css"
 
 const OtherInstructionsPage = () => {
     const operation = [
@@ -37,6 +40,7 @@ const OtherInstructionsPage = () => {
 
     return (
         <div>
+            <Navbar />
             <h1>Demais Instruções</h1>
             <Dropdown props={operation} placeholder={"Operação"} />
             <Dropdown props={register} placeholder={"Destino"} />

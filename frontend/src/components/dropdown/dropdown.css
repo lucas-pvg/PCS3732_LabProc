@@ -1,1 +1,5 @@
-
+.dropdown-container {
+    margin: 1rem;
+    width: 20%;
+    border-radius: 50%;
+}

@@ -1,6 +1,11 @@
 import React from "react";
+import { useState } from "react";
 
 import Dropdown from "../../components/dropdown/dropdown";
+import Switch from "../../components/switch/switch";
+import Navbar from "../../components/navbar/navbar";
+
+import "./branchPage.css"
 
 const BranchPage = () => {
     const operation = [
@@ -30,13 +35,41 @@ const BranchPage = () => {
         { value: "CPSR", label: "CPSR" },
     ];
 
+    const [isToggled, setIsToggled] = useState(false);
+
     return (
-        <div>
-            <h1>Instruções de Desvio</h1>
-            <Dropdown props={operation} placeholder={"Operação"} />
-            <Dropdown props={register} placeholder={"Destino"} />
-            <Dropdown props={register} placeholder={"Primeiro Operando"} />
-            <Dropdown props={register} placeholder={"Segundo Operando"} />
+         <div>
+            <Navbar />
+            <div className="arithmeticsPage">
+                <h1 className="instrucTitle">Instruções de Desvio</h1>
+                <Switch
+                    className="switch"
+                    isToggled={isToggled}
+                    onToggle={() => setIsToggled(!isToggled)}
+                />
+                <div className="dropdown-row">
+                    <Dropdown
+                        className="dropdown"
+                        options={operation}
+                        placeholder="Operação"
+                    />
+                    <Dropdown
+                        className="dropdown"
+                        options={register}
+                        placeholder="Destino"
+                    />
+                    <Dropdown
+                        className="dropdown"
+                        options={register}
+                        placeholder="Primeiro Operando"
+                    />
+                    <Dropdown
+                        className="dropdown"
+                        options={register}
+                        placeholder="Segundo Operando"
+                    />
+                </div>
+            </div>
         </div>
     );
 };

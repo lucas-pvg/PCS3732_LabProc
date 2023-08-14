@@ -1,8 +1,11 @@
 import React from "react";
-// import { useState } from "react";
+import { useState } from "react";
 
 import Dropdown from "../../components/dropdown/dropdown";
 import Switch from "../../components/switch/switch";
+import Navbar from "../../components/navbar/navbar";
+
+import "./arithmeticsPage.css";
 
 const ArithmeticsPage = () => {
     const operation = [
@@ -33,14 +36,41 @@ const ArithmeticsPage = () => {
         { value: "CPSR", label: "CPSR" },
     ];
 
+    const [isToggled, setIsToggled] = useState(false);
+
     return (
         <div>
-            <h1>Instruções Aritméticas</h1>
-            <Switch name="Imediato"></Switch>
-            <Dropdown options={operation} placeholder="Operação" />
-            <Dropdown options={register} placeholder="Destino" />
-            <Dropdown options={register} placeholder="Primeiro Operando" />
-            <Dropdown options={register} placeholder="Segundo Operando" />
+            <Navbar />
+            <div className="arithmeticsPage">
+                <h1 className="instrucTitle">Instruções Aritméticas</h1>
+                <Switch
+                    className="switch"
+                    isToggled={isToggled}
+                    onToggle={() => setIsToggled(!isToggled)}
+                />
+                <div className="dropdown-row">
+                    <Dropdown
+                        className="dropdown"
+                        options={operation}
+                        placeholder="Operação"
+                    />
+                    <Dropdown
+                        className="dropdown"
+                        options={register}
+                        placeholder="Destino"
+                    />
+                    <Dropdown
+                        className="dropdown"
+                        options={register}
+                        placeholder="Primeiro Operando"
+                    />
+                    <Dropdown
+                        className="dropdown"
+                        options={register}
+                        placeholder="Segundo Operando"
+                    />
+                </div>
+            </div>
         </div>
     );
 };

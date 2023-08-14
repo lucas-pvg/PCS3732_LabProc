@@ -19,8 +19,8 @@ function ExpBut(props) {
             />
 
             <div className={ isClick ? "wipe but-container" : "disable"}>
-                <Button classes="light" to="arithmetics" text="Aritméticas" />
-                <Button classes="light" to="branch" text="Desvio" />
+                <Button classes="light" to="arithmetics-info" text="Aritméticas" />
+                <Button classes="light" to="branch-info" text="Desvio" />
                 <Button to="quiz" text="Quiz" />
             </div>
         </div>

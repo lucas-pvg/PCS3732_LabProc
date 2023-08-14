@@ -1,17 +1,13 @@
 import React from "react";
 
-const Switch = (props) => {
+import "./switch.css";
+
+const Switch = ({ isToggled, onToggle }) => {
     return (
-        <div className="toggle-switch">
-            <input
-                type="checkbox"
-                className="toggle-switch-checkbox"
-                name={props.name}
-                id={props.name}
-            />
-            <label className="toggle-switch-label" htmlFor={this.props.Name}>
-                <span className="toggle-switch-inner" />
-                <span className="toggle-switch-switch" />
+        <div className="switchDiv">
+            <label className="switch">
+                <input type="checkbox" checked={isToggled} onChange={onToggle}/>
+                <span className="slider" />
             </label>
         </div>
     );

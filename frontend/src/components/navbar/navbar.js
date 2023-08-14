@@ -11,11 +11,11 @@ function Navbar() {
          </Link>
 
          <ul>
-            <li><Link to="arithmetics" className="route">Aritméticas</Link></li>
-            <li><Link to="branch" className="route">Desvio</Link></li>
-            <li><Link to="quiz" className="route">Quiz</Link></li>
-            <li><Link to="moreInfo" className="route">Saiba mais</Link></li>
-            <li><Link to="about" className="route">Quem somos nós?</Link></li>
+            <li><Link to="/arithmetics-info" className="route">Aritméticas</Link></li>
+            <li><Link to="/branch-info" className="route">Desvio</Link></li>
+            <li><Link to="/quiz" className="route">Quiz</Link></li>
+            <li><Link to="/other-instructions" className="route">Outras Instruções</Link></li>
+            <li><Link to="/about" className="route">Quem somos nós?</Link></li>
          </ul>
       </nav>
    );
