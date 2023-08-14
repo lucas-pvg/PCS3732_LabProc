@@ -1,0 +1,39 @@
+.but {
+    width: fit-content;
+    height: fit-content;
+    border-radius: 1rem;
+    background-color: #B18FCF;
+    text-decoration: none;
+}
+
+.but:hover {
+    background-color: #977aaf;
+}
+
+.link {
+    display: flex;
+    padding: 1rem 3rem;
+    text-decoration: none;
+    align-items: center;
+}
+
+.but span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    color: #ffffff;
+}
+
+.img {
+    display: none;
+    height: 1.8rem;
+    width: 1.8rem;
+    margin-left: .8rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.arrow .img {
+    display: inline-block;
+    background-image: url(../../images/right-arrow.png);
+}
