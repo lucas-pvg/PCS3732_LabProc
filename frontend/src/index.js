@@ -8,51 +8,66 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import HomePage from "./routes/homePage";
 import AboutPage from "./routes/aboutPage";
-import ArithmeticsPage from "./routes/arithmeticsPage";
+import ArithmeticsPage from "./routes/arithmeticsInstructions/arithmeticsPage";
+import ArithmeticsInfoPage from "./routes/arithmeticsInstructions/arithmeticsInfoPage";
 import ErrorPage from "./routes/errorPage";
-import BranchPage from "./routes/branchPage";
+import BranchPage from "./routes/branchInstructions/branchPage";
+import BranchInfoPage from "./routes/branchInstructions/branchInfoPage";
 import QuizPage from "./routes/quizPage";
-import MoreInfoPage from "./routes/moreInfoPage";
+import OtherInstructionsPage from "./routes/otherInstructions/otherInstructionsPage";
+import OtherInstructionsInfoPage from "./routes/otherInstructions/otherInstructionsInfoPage";
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
+    {
         path: "/",
-        element: <HomePage />,
-      },
-      {
-        path: "about",
-        element: <AboutPage />,
-      },
-      {
-        path: "arithmetics",
-        element: <ArithmeticsPage />,
-      },
-      {
-        path: "branch",
-        element: <BranchPage />,
-      },
-      {
-        path: "quiz",
-        element: <QuizPage />,
-      },
-      {
-        path: "more-info",
-        element: <MoreInfoPage />,
-      },
-    ],
-  },
+        element: <App />,
+        errorElement: <ErrorPage />,
+        children: [
+            {
+                path: "/",
+                element: <HomePage />,
+            },
+            {
+                path: "about",
+                element: <AboutPage />,
+            },
+            {
+                path: "arithmetics",
+                element: <ArithmeticsPage />,
+            },
+            {
+                path: "arithmetics-info",
+                element: <ArithmeticsInfoPage />,
+            },
+            {
+                path: "branch",
+                element: <BranchPage />,
+            },
+            {
+                path: "branch-info",
+                element: <BranchInfoPage />,
+            },
+            {
+                path: "quiz",
+                element: <QuizPage />,
+            },
+            {
+                path: "other-instructions",
+                element: <OtherInstructionsPage />,
+            },
+            {
+                path: "other-instructions-info",
+                element: <OtherInstructionsInfoPage />,
+            },
+        ],
+    },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+    <React.StrictMode>
+        <RouterProvider router={router} />
+    </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

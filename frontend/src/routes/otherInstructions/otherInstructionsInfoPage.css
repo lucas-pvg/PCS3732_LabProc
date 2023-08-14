@@ -1,0 +1,25 @@
+.other-instructions {
+    margin: 2rem;
+}
+
+.switch {
+    left: 91%;
+}
+
+.instrucTitle {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.dropdown-row {
+    border-radius: 20px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #B4EDD2;
+    margin: auto;
+}
+
+.dropdown {
+    font-family: 'Inconsolata', monospace;
+}
