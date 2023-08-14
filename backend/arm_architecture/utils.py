@@ -99,10 +99,21 @@ def update_cpsr(result):
         cpsr_value += 2 ^ 31
     if result == 0:
         cpsr_value += 2 ^ 30
+    if result.bit_length() > 32:
+        cpsr_value += 3 ^ 29
 
     cpsr_register.value = cpsr_value
 
     cpsr_register.save()
+
+
+def change_result_in_case_of_overflow_or_carry(result_preliminary, overflow):
+    result = result_preliminary
+
+    if overflow:
+        result = result_preliminary - 2 ^ 33
+
+    return result
 
 
 def execute_operation(operation, register_destination, first_operand, second_operand):
