@@ -4,6 +4,36 @@ from rest_framework.response import Response
 from .models import Register
 
 
+def has_overflow(result, first_operand, second_operand):
+    first_operand_value_two_complement = twos_complement(first_operand.value)
+
+    try:
+        second_operand_value_two_complement = twos_complement(second_operand.value)
+    except AttributeError:
+        second_operand_value_two_complement = twos_complement(second_operand["value"])
+
+    result_two_complement = twos_complement(result)
+
+    return (
+        result_two_complement > 0
+        and (
+            first_operand_value_two_complement < 0
+            and second_operand_value_two_complement < 0
+        )
+        or result_two_complement < 0
+        and (
+            first_operand_value_two_complement > 0
+            and second_operand_value_two_complement > 0
+        )
+    )
+
+
+def twos_complement(value):
+    if value & (1 << (value.bit_length() - 1)):
+        value = value - (1 << value.bit_length())
+    return value
+
+
 def convert_to_integer(value):
     if isinstance(value, int):
         return value
@@ -112,16 +142,18 @@ def identify_operation(operation, first_operand, second_operand):
     return "Not valid operation"
 
 
-def update_cpsr(result):
+def update_cpsr(result, overflow):
     cpsr_register = Register.objects.get_or_create(label="CPSR")
     cpsr_value = 0
 
     if result < 0:
-        cpsr_value += 2 ^ 31
+        cpsr_value += 2**31
     if result == 0:
-        cpsr_value += 2 ^ 30
+        cpsr_value += 2**30
     if result.bit_length() > 32:
-        cpsr_value += 3 ^ 29
+        cpsr_value += 3**29
+    if overflow:
+        cpsr_value += 3**28
 
     cpsr_register.value = cpsr_value
 
@@ -147,10 +179,12 @@ def execute_operation(operation, register_destination, first_operand, second_ope
 
     result = identify_operation(operation, first_operand, second_operand)
 
+    overflow = has_overflow(operation, first_operand, second_operand)
+
     register_destination.value = result
     register_destination.save()
 
     if operation[-1] == "S":
-        update_cpsr(result)
+        update_cpsr(result, overflow)
 
     return Response(status=status.HTTP_200_OK)
