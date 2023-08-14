@@ -1,0 +1,16 @@
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 2rem;
+    height: 2rem;
+}
+
+.logo span {
+    font-family: 'Montserrat', sans-serif;
+    color: #404040;
+    font-size: 1.5rem;
+    font-weight: 300;
+}

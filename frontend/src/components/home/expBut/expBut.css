@@ -1,0 +1,41 @@
+.exp-but {
+    position: relative;
+}
+
+.but-container {
+    padding: 1rem;
+    margin-top: -1rem;
+    margin-left: -1rem;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.disable {
+    display: none;
+}
+
+.light {
+    background-color: #E8D7F1;
+}
+
+.light:hover {
+    background-color: #d8c7e1;
+}
+
+.light span {
+    color: #404040;
+}
+
+@keyframes wipe-in-right {
+    from {
+        clip-path: inset(0 100% 0 0);
+}
+
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+.wipe {
+    animation: 1s ease-in-out wipe-in-right both;
+}

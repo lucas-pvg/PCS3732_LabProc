@@ -4,16 +4,15 @@ from django.db import models
 
 
 class Register(models.Model):
-    id = models.PositiveIntegerField(primary_key=True, unique=True)
     label = models.CharField(max_length=5)
-    data_integer = models.IntegerField(
+    value = models.IntegerField(
         default=0,
         validators=[MaxValueValidator(2147483647), MinValueValidator(-2147483647)],
     )
 
     @property
     def data_binary(self):
-        return bin(self.data_integer)
+        return bin(self.value)
 
     @property
     def data_as_array(self):
