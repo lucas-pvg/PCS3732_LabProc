@@ -2,20 +2,20 @@ import React from "react";
 import HomeNavbar from "../components/navbar/homeNavbar";
 import Title from "../components/home/title/title";
 import ExpBut from "../components/home/expBut/expBut";
+import Quiz from "../components/quiz/quiz";
 
 import "./homePage.css";
 
-const HomePage = () => {
+const HomePage = () => { 
   return (
     <div className="home">
       <HomeNavbar />
       
       <div className="content">
-        <Title classes="title" />
+        <Title className="title" />
         <p className="subtitle">Simule e aprenda instruções ARM32</p>
-        <ExpBut classes="exp-but" />
+        <ExpBut className="exp-but" />
       </div>
-      
     </div>
   );
 };

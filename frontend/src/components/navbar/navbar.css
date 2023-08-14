@@ -35,7 +35,6 @@ li {
 }
 
 .navbar {
-    height: 4rem;
     display: flex;
     background-color: #B18FCF;
     align-items: center;
@@ -64,4 +63,8 @@ li {
 .navbar ul {
     display: flex;
     gap: 2.5rem;
+}
+
+.disable {
+    display: none;
 }

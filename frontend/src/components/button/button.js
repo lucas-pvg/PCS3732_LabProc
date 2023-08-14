@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import "./button.css";
 
 function Button(props) {
-   const classes = "but " + props.classes;
+   const classes = "but " + props.className;
 
   return (
       <motion.div 

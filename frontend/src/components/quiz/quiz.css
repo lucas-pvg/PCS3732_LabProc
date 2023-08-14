@@ -1,0 +1,84 @@
+.quiz-container {
+    position: absolute;
+    inset: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #40404070;
+    color: #404040;
+}
+
+.quiz-card {
+    width: 35%;
+    padding: 1rem 2rem;
+    border: 7px solid #E8D7F1;
+    border-radius: 1rem;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.quiz-container .question {
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 2rem;
+}
+
+.quiz-container .option {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+    border: 1px solid #404040;
+    border-radius: 1rem;
+    background-color: #ffffff;
+}
+
+.quiz-container .option .link {
+    padding: 1rem 2rem;
+}
+
+.quiz-container .option span {
+    font-family: 'Inconsolata', monospace;
+    color: #404040;
+    font-size: 1rem;
+}
+
+.quiz-container .last {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.quiz-container .counter {
+    font-family: 'Inconsolata', monospace;
+    color: #404040;
+    font-size: 1.2rem;
+    font-weight: 300;
+    align-self: flex-end;
+}
+
+.quiz-but {
+    margin: 1.5rem 0 .5rem auto;
+}
+
+.quiz-but .link {
+    padding: 1rem 1.5rem;
+}
+
+.quiz-but span {
+    font-size: 1rem;
+}
+
+.quiz-container .result {
+    display: block;
+    font-family: 'Inconsolata', monospace;
+    color: #404040;
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.quiz-container .result span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
