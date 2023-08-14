@@ -5,6 +5,9 @@ function AboutCard(props) {
     var cardClasses = "about-card " + props.side;
     var imgClasses = "image " + props.className;
 
+    if (props.end)
+        cardClasses += " end";
+
     return (
         <div className={cardClasses}>
             <div className={imgClasses} />
