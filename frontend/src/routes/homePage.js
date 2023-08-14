@@ -2,7 +2,6 @@ import React from "react";
 import HomeNavbar from "../components/navbar/homeNavbar";
 import Title from "../components/home/title/title";
 import ExpBut from "../components/home/expBut/expBut";
-import Quiz from "../components/quiz/quiz";
 
 import "./homePage.css";
 
