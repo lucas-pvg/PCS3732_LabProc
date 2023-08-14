@@ -4,10 +4,13 @@ import { useState } from "react";
 import Dropdown from "../../components/dropdown/dropdown";
 import Switch from "../../components/switch/switch";
 import Navbar from "../../components/navbar/navbar";
+import ButtonGo from "../../components/buttongo/buttonGo";
+import Service from "../../services/service";
 
 import "./arithmeticsPage.css";
 
 const ArithmeticsPage = () => {
+
     const operation = [
         { value: "ADD", label: "ADD" },
         { value: "SUB", label: "SUB" },
@@ -37,38 +40,87 @@ const ArithmeticsPage = () => {
     ];
 
     const [isToggled, setIsToggled] = useState(false);
+    const [selectedOperation, setSelectedOperation] = useState();
+    const [selectedDestination, setSelectedDestination] = useState();
+    const [selectedOperand1, setSelectedOperand1] = useState();
+    const [selectedOperand2, setSelectedOperand2] = useState();
+
+    var data = {
+        operation: selectedOperation,
+        registerDestination: {
+            label: selectedDestination,
+            value: 0, 
+        },
+        firstOperand: {
+            label: selectedOperand1,
+            value: 0
+        },
+        secondOperand: {
+            label: selectedOperand2,
+            value: 0,
+        }
+    }
+
+    const handleSelectedOperation = (data) => {
+        setSelectedOperation(data);
+    };
+
+    const handleSelectedDestination = (data) => {
+        setSelectedDestination(data);
+    };
+
+    const handleSelectedOperand1 = (data) => {
+        setSelectedOperand1(data);
+    };
+
+    const handleSelectedOperand2 = (data) => {
+        setSelectedOperand2(data);
+    };
+
+    const onSend = () => {
+        Service.postOperation(data)
+    }
 
     return (
         <div>
             <Navbar />
             <div className="arithmeticsPage">
-                <h1 className="instrucTitle">Instruções Aritméticas</h1>
+                <h1 className="instrucTitle-ap">Instruções Aritméticas</h1>
                 <Switch
-                    className="switch"
+                    className="switch-ap"
                     isToggled={isToggled}
                     onToggle={() => setIsToggled(!isToggled)}
                 />
-                <div className="dropdown-row">
+                <div className="dropdown-row-ap">
                     <Dropdown
-                        className="dropdown"
+                        className="dropdown-ap"
                         options={operation}
                         placeholder="Operação"
+                        handleSelectedOptions={handleSelectedOperation}
+                        selectedOption={selectedOperation}
                     />
                     <Dropdown
-                        className="dropdown"
+                        className="dropdown-ap"
                         options={register}
                         placeholder="Destino"
+                        handleSelectedOptions={handleSelectedDestination}
+                        selectedOption={selectedDestination}
                     />
                     <Dropdown
-                        className="dropdown"
+                        className="dropdown-ap"
                         options={register}
                         placeholder="Primeiro Operando"
+                        handleSelectedOptions={handleSelectedOperand1}
+                        selectedOption={selectedOperand1}
                     />
                     <Dropdown
-                        className="dropdown"
+                        className="dropdown-ap"
                         options={register}
                         placeholder="Segundo Operando"
+                        handleSelectedOptions={handleSelectedOperand2}
+                        selectedOption={selectedOperand2}
                     />
+                    <ButtonGo handleSend={onSend}/>
                 </div>
             </div>
         </div>

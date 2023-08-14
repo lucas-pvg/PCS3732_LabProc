@@ -1,11 +1,14 @@
 import React from "react";
+import { useState } from "react";
 
 import Dropdown from "../../components/dropdown/dropdown";
+import Switch from "../../components/switch/switch";
 import Navbar from "../../components/navbar/navbar";
 
-import "./otherInstructionsPage.css"
+import "./otherInstructionsPage.css";
 
 const OtherInstructionsPage = () => {
+
     const operation = [
         { value: "AND", label: "AND" },
         { value: "EOR", label: "EOR" },
@@ -38,14 +41,69 @@ const OtherInstructionsPage = () => {
         { value: "CPSR", label: "CPSR" },
     ];
 
+    const [isToggled, setIsToggled] = useState(false);
+    const [selectedOperation, setSelectedOperation] = useState();
+    const [selectedDestination, setSelectedDestination] = useState();
+    const [selectedOperand1, setSelectedOperand1] = useState();
+    const [selectedOperand2, setSelectedOperand2] = useState();
+
+    const handleSelectedOperation = (data) => {
+        setSelectedOperation(data);
+    };
+
+    const handleSelectedDestination = (data) => {
+        setSelectedDestination(data);
+    };
+
+    const handleSelectedOperand1 = (data) => {
+        setSelectedOperand1(data);
+    };
+
+    const handleSelectedOperand2 = (data) => {
+        setSelectedOperand2(data);
+    };
+
     return (
         <div>
             <Navbar />
-            <h1>Demais Instruções</h1>
-            <Dropdown props={operation} placeholder={"Operação"} />
-            <Dropdown props={register} placeholder={"Destino"} />
-            <Dropdown props={register} placeholder={"Primeiro Operando"} />
-            <Dropdown props={register} placeholder={"Segundo Operando"} />
+            <div className="otherInstruc">
+                <h1>Demais Instruções</h1>
+                <Switch
+                    className="switch"
+                    isToggled={isToggled}
+                    onToggle={() => setIsToggled(!isToggled)}
+                />
+                <div className="dropdown-row">
+                    <Dropdown
+                        className="dropdown"
+                        options={operation}
+                        placeholder="Operação"
+                        handleSelectedOptions={handleSelectedOperation}
+                        selectedOption={selectedOperation}
+                    />
+                    <Dropdown
+                        className="dropdown"
+                        options={register}
+                        placeholder="Destino"
+                        handleSelectedOptions={handleSelectedDestination}
+                        selectedOption={selectedDestination}
+                    />
+                    <Dropdown
+                        className="dropdown"
+                        options={register}
+                        placeholder="Primeiro Operando"
+                        handleSelectedOptions={handleSelectedOperand1}
+                        selectedOption={selectedOperand1}
+                    />
+                    <Dropdown
+                        className="dropdown"
+                        options={register}
+                        placeholder="Segundo Operando"
+                        handleSelectedOptions={handleSelectedOperand2}
+                        selectedOption={selectedOperand2}
+                    />
+                </div>
+            </div>
         </div>
     );
 };

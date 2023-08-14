@@ -4,8 +4,9 @@ import { useState } from "react";
 import Dropdown from "../../components/dropdown/dropdown";
 import Switch from "../../components/switch/switch";
 import Navbar from "../../components/navbar/navbar";
+import ButtonGo from "../../components/buttongo/buttonGo";
 
-import "./branchPage.css"
+import "./branchPage.css";
 
 const BranchPage = () => {
     const operation = [
@@ -36,38 +37,43 @@ const BranchPage = () => {
     ];
 
     const [isToggled, setIsToggled] = useState(false);
+    const [selectedOperation, setSelectedOperation] = useState();
+    const [selectedDestination, setSelectedDestination] = useState();
+
+    const handleSelectedOperation = (data) => {
+        setSelectedOperation(data);
+    };
+
+    const handleSelectedDestination = (data) => {
+        setSelectedDestination(data);
+    };
 
     return (
-         <div>
+        <div>
             <Navbar />
-            <div className="arithmeticsPage">
-                <h1 className="instrucTitle">Instruções de Desvio</h1>
+            <div className="branchPage">
+                <h1 className="instrucTitle-bp">Instruções de Desvio</h1>
                 <Switch
-                    className="switch"
+                    className="switch-bp"
                     isToggled={isToggled}
                     onToggle={() => setIsToggled(!isToggled)}
                 />
-                <div className="dropdown-row">
+                <div className="dropdown-row-bp">
                     <Dropdown
-                        className="dropdown"
+                        className="dropdown-bp"
                         options={operation}
                         placeholder="Operação"
+                        handleSelectedOptions={handleSelectedOperation}
+                        selectedOption={selectedOperation}
                     />
                     <Dropdown
-                        className="dropdown"
+                        className="dropdown-bp"
                         options={register}
                         placeholder="Destino"
+                        handleSelectedOptions={handleSelectedDestination}
+                        selectedOption={selectedDestination}
                     />
-                    <Dropdown
-                        className="dropdown"
-                        options={register}
-                        placeholder="Primeiro Operando"
-                    />
-                    <Dropdown
-                        className="dropdown"
-                        options={register}
-                        placeholder="Segundo Operando"
-                    />
+                    <ButtonGo />
                 </div>
             </div>
         </div>

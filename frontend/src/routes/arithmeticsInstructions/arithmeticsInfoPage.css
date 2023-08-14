@@ -1,0 +1,23 @@
+.arithmetics-info {
+    margin: 2rem;
+}
+
+.infos-aip {
+    margin-bottom: 2rem;
+}
+
+.left-div-aip {
+    width: 50%;
+    height: 500px;
+    float: left;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-div-aip {
+    width: 50%;
+    float: right;
+    height: 500px;
+    align-items: center;
+    justify-content: center;
+}

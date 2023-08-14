@@ -4,13 +4,7 @@ import { useState } from "react";
 
 import "./dropdown.css";
 
-const Dropdown = ({placeholder, options}) => {
-    
-    const [selectedOption, setSelectedOption] = useState();
-
-    const handleSelectedOptions = (data) => {
-        setSelectedOption(data);
-    };
+const Dropdown = ({placeholder, options, handleSelectedOptions, selectedOption}) => {
 
     return (
         <div className="dropdown-container">

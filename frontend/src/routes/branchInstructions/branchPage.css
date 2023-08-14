@@ -1,25 +1,25 @@
-.arithmeticsPage {
+.branchPage {
     margin: 2rem;
 }
 
-.switch {
+.switch-bp {
     left: 91%;
 }
 
-.instrucTitle {
+.instrucTitle-bp {
     font-family: 'Montserrat', sans-serif;
 }
 
-.dropdown-row {
+.dropdown-row-bp {
     border-radius: 20px;
-    width: 90%;
+    width: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #B4EDD2;
+    background-color: #E8D7F1;
     margin: auto;
 }
 
-.dropdown {
+.dropdown-bp {
     font-family: 'Inconsolata', monospace;
 }
