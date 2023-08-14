@@ -10,7 +10,7 @@
 
 .about-card .image {
     background-size: cover;
-    border: 5px solid #E8D7F1;
+    border: 10px solid #E8D7F1;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 50%;
     height: 15rem;
@@ -41,6 +41,10 @@
     text-align: end;
 }
 
+.end {
+    padding-bottom: 5rem;
+}
+
 .right .info {
     text-align-last: right;
 }
@@ -56,3 +60,8 @@
 .about-card .bacic {
     background-image: url("../../../images/bacic.jpeg");
 }
+
+.about-card .lucas {
+    background-image: url("../../../images/lucas.jpg");
+}
+
