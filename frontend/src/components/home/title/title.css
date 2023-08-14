@@ -1,0 +1,26 @@
+.title {
+    font-family: 'Montserrat', sans-serif;
+    color: #404040;
+    width: fit-content;
+}
+
+.title p {
+    font-size: 2.7rem;
+    font-weight: 300;
+    margin: 0;
+}
+
+.title h1 {
+    font-size: 7.5rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+hr {
+    width: 7rem;
+    height: 1px;
+    margin-left: 0;
+    color: #404040;
+    background: #404040;
+    margin-top: 1.5rem;
+}
