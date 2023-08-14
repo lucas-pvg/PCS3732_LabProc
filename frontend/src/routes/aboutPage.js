@@ -26,7 +26,7 @@ const AboutPage = () => {
       <AboutCard
         className="bacic"
         side="left"
-        name="Pedro Victor Bacic"
+        name="Pedro Vitor Bacic"
         info="Outro gostoso que vai pra Alemanha e tá aqui sofrendo porque se odeia. Mas perfeito, tudo pra mim, joga Devour comigo à noite e depois fica os dois idiota com medo na USP."
       />
 
@@ -34,7 +34,7 @@ const AboutPage = () => {
         className="soph"
         side="right"
         end={true}
-        name="Sophia Asakure Lie"
+        name="Sophia Lie Asakura"
         info="Uma gostosa que vai pro Japão e não precisava mais ter que aturar a gente ou esse professor, mas ela ainda tenta. Sei lá, vai entender."
       />
 
