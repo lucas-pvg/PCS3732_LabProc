@@ -73,28 +73,27 @@ const ArithmeticsPage = () => {
     const onSend = () => {
         !isToggled
             ? (data = {
-                  operation: selectedOperation,
+                  operation: selectedOperation.label,
                   registerDestination: {
-                      label: selectedDestination,
-                      value: 0,
+                      label: selectedDestination.label,
                   },
                   firstOperand: {
-                      label: selectedOperand1,
+                      label: selectedOperand1.label,
                       value: 0,
                   },
                   secondOperand: {
-                      label: selectedOperand2,
+                      label: selectedOperand2.label,
                       value: 0,
                   },
               })
             : (data = {
-                  operation: selectedOperation,
+                  operation: selectedOperation.label,
                   registerDestination: {
-                      label: selectedDestination,
+                      label: selectedDestination.label,
                       value: 0,
                   },
                   firstOperand: {
-                      label: selectedOperand1,
+                      label: selectedOperand1.label,
                       value: 0,
                   },
                   secondOperand: {
@@ -102,7 +101,7 @@ const ArithmeticsPage = () => {
                   },
               });
 
-        Service.postOperation(data);
+        Service.postOperation(data).then(response => console.log(response));
     };
 
     return (
