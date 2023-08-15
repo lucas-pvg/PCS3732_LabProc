@@ -275,6 +275,7 @@ const ArithmeticsPage = () => {
                     <Switch
                         isToggled={isToggled}
                         onToggle={() => setIsToggled(!isToggled)}
+                        disabled={false}
                     />
                 </div>
                 <div className="dropdown-row-ap">

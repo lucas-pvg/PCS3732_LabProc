@@ -307,6 +307,7 @@ const OtherInstructionsPage = () => {
                         <Switch
                             isToggled={isToggledLogic}
                             onToggle={() => setisToggledLogic(!isToggledLogic)}
+                            disabled={false}
                         />
                     </div>
                     <div className="switch-oip">
@@ -316,6 +317,7 @@ const OtherInstructionsPage = () => {
                             onToggle={() =>
                                 setIsToggledImediate(!isToggleImediate)
                             }
+                            disabled={false}
                         />
                     </div>
                 </div>

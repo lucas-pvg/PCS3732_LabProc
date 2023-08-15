@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Dropdown from "../../components/dropdown/dropdown";
 import Navbar from "../../components/navbar/navbar";
@@ -41,8 +41,8 @@ const BranchPage = () => {
     ];
 
     const [selectedOperation, setSelectedOperation] = useState("");
-    const [selectedDestination, setSelectedDestination] = useState();
-    const [selectedOperand1, setSelectedOperand1] = useState();
+    const [selectedImeDestination, setselectedImeDestination] = useState();
+    const [selectedRegDestination, setselectedRegDestination] = useState();
     const [isToggled, setIsToggled] = useState(false);
     const [inputR0, setInputR0] = useState();
     const [inputR1, setInputR1] = useState();
@@ -66,12 +66,12 @@ const BranchPage = () => {
         setSelectedOperation(data);
     };
 
-    const handleSelectedOperand1 = (data) => {
-        setSelectedOperand1(data);
+    const handleselectedRegDestination = (data) => {
+        setselectedRegDestination(data);
     };
 
     const handleTextInput = (event) => {
-        setSelectedDestination(event.target.value);
+        setselectedImeDestination(event.target.value);
     };
 
     const handleR0 = (event) => {
@@ -146,12 +146,20 @@ const BranchPage = () => {
     var reg = [];
 
     const onSend = () => {
-        data = {
-            operation: selectedOperation,
-            registerDestination: {
-                value: selectedDestination,
-            },
-        };
+        !isToggled
+            ? (data = {
+                  operation: selectedOperation,
+                  registerDestination: {
+                      label: selectedRegDestination,
+                      value: 0,
+                  },
+              })
+            : (data = {
+                  operation: selectedOperation,
+                  registerDestination: {
+                      value: selectedImeDestination,
+                  },
+              });
 
         reg = [
             {
@@ -224,21 +232,43 @@ const BranchPage = () => {
             },
         ];
 
-        Service.postOperation(data);
+        Service.updateAllRegisters(reg).then((response) =>
+            console.log(response)
+        );
+        Service.postOperation(data).then((response) => console.log(response));
     };
+
+    useEffect(() => {
+        if(selectedOperation.value === "B" || selectedOperation === "BX") {
+            setIsToggled(true);
+        }
+    }, [selectedOperation])
 
     return (
         <div>
             <Navbar />
             <div className="branchPage">
                 <h1 className="instrucTitle-bp">Instruções de Desvio</h1>
-                <div className="imediate-switch-bp">
-                    <p className="switch-label-bp">Imediato</p>
-                    <Switch
-                        isToggled={isToggled}
-                        onToggle={() => setIsToggled(!isToggled)}
-                    />
-                </div>
+                {selectedOperation.value === "BX" && (
+                    <div className="imediate-switch-bp">
+                        <p className="switch-label-bp">Imediato</p>
+                        <Switch
+                            isToggled={isToggled}
+                            onToggle={() => setIsToggled(!isToggled)}
+                            disabled={false}
+                        />
+                    </div>
+                )}
+                {selectedOperation.value === "BLX" && (
+                    <div className="imediate-switch-bp">
+                        <p className="switch-label-bp">Imediato</p>
+                        <Switch
+                            isToggled={isToggled}
+                            onToggle={() => setIsToggled(!isToggled)}
+                            disabled={false}
+                        />
+                    </div>
+                )}
                 <div className="dropdown-row-bp">
                     <Dropdown
                         className="dropdown-bp"
@@ -258,8 +288,8 @@ const BranchPage = () => {
                             className="dropdown-ap"
                             options={register}
                             placeholder="Primeiro Operando"
-                            handleSelectedOptions={handleSelectedOperand1}
-                            selectedOption={selectedOperand1}
+                            handleSelectedOptions={handleselectedRegDestination}
+                            selectedOption={selectedRegDestination}
                         />
                     )}
                     <ButtonGo handleSend={onSend} />
