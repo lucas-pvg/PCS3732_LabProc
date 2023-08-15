@@ -76,6 +76,13 @@ def identify_operation(operation, first_operand, second_operand):
         except AttributeError:
             result = first_operand.value * second_operand["value"]
         return result
+    
+    if operation in ["BIC"]:
+        try:
+            result = first_operand.value & ~second_operand.value
+        except AttributeError:
+            result = first_operand.value & ~second_operand["value"]
+        return result
 
     if operation in ["MOV"]:
         return first_operand["value"]
