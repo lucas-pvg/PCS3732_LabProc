@@ -114,6 +114,22 @@ def identify_operation(operation, first_operand, second_operand):
             return "Not valid operation"
         
         return first_operand.value
+    
+    if operation in ["BL"]:
+        if "label" in first_operand:
+            return "Not valid operation"
+        
+        #TODO: Mudar R14
+
+        return first_operand.value
+    
+    if operation in ["BX"]:
+        return first_operand.value
+    
+    if operation in ["BLX"]:
+        #TODO: Mudar R14
+
+        return first_operand.value
 
     return "Not valid operation"
 
