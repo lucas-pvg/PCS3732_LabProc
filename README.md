@@ -1,6 +1,16 @@
-﻿# PCS3732_LabProc
+﻿# PCS3732_LabProc - Emulador didático de instruções ARM
 
-Emulador didático de instruções ARM;
+A proposta desse projeto é desenvolver um simulador de instruções ARM que possibilite o usuário aprender mais sobre algumas categorias de instruções e sobre o funcionamento do ARM como um todo, enquanto pode testar seu conhecimento simulando as instruções aprendidas. O projeto foi desenvolvido em JavaScript e Python, usando React e Django.
+
+A parte visual do projeto e a interface com a qual o usuário interage foi implementada usando React e é o que possibilita que o projeto seja disponibilizado no formato de uma aplicação Web. Já o tratamento dos dados, processamento e simulação das instruções é feito no backend da aplicação, implementado em Django, permitindo que uma lógica que simula as principais funcionalidades do ARM fosse implementada.
+
+Dessa forma, foram escolhidas algumas categorias de instruções para serem simulados, sendo elas instruções aritméticas básicas, instruções de desvio, instruções de operações lógicas e instruções de movimentação de operandos, como MOV e MVN, entre outros.
+
+## Organização do projeto
+
+O projeto está, principalmente, divido entre os diretórios backend e frontend, onde estão armazenados a simulação e processamento das instruções usando Django e a aplicação Web desenvolvida usando React, respectivamente.
+
+Para a aplicação, a divisão de telas foi feita a partir de cada categoria de instrução e ser simulada e outras funcionalidades da aplicação. Dessa forma, temos uma tela dedicada para a descrição e simulação de cada tipo de instrução citada anteriormente, sendo uma para aritméticas, uma para desvios e uma para os demais detalhes da arquitetura. Além disso, temos uma tela principal, uma tela contendo informações sobre os integrantes do grupo e uma tela de quiz, na qual o usuário pode responder uma série de perguntas sobre a arquitetura ARM e receber o resultado do seu desempenho.
 
 ## Configuração automática
 
