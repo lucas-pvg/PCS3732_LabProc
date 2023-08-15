@@ -1,19 +1,21 @@
 .arithmeticsPage {
-    margin: 2rem;
+    margin: 2rem 4rem;
 }
 
 .imediate-switch-ap {
     display: flex;
     align-items: center;
-    margin: 1rem;
+    margin: 1rem 0;
 }
 
 .switch-label-ap {
     font-family: 'Inconsolata', monospace;
+    color: #404040;
 }
 
 .instrucTitle-ap {
     font-family: 'Montserrat', sans-serif;
+    color: #404040;
 }
 
 .dropdown-row-ap {
@@ -45,3 +47,13 @@
     align-items: center;
     justify-content: center;
 }
+
+.row-label {
+    font-family: 'Inconsolata', monospace;
+    color: #404040;
+}
+
+.left-div-ap .card .title {
+    margin-top: 3rem;
+}
+

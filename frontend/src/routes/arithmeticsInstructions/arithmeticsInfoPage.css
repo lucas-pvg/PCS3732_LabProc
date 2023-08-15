@@ -7,7 +7,7 @@
 }
 
 .left-div-aip {
-    width: 50%;
+    width: 45%;
     height: 500px;
     float: left;
     align-items: center;
@@ -20,4 +20,12 @@
     height: 500px;
     align-items: center;
     justify-content: center;
+}
+
+.left-div-aip {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 2rem;
 }

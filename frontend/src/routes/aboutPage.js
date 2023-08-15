@@ -13,7 +13,7 @@ const AboutPage = () => {
         className="lucas"
         side="left"
         name="Lucas Pavan Garieri"
-        info="Alguém que não dorme tem muito tempo e precisa urgentemente de férias. Seus maiores medos são feedback da Tereza, exercício surpresa de econo e cheiro de Falquetto. Also alguém paga minha FEA Funk?"
+        info="NUSP 11806614. Bom, todo mundo me chama de Luquinhas, ou alguma variação como Lu, e, nesse projeto, fiquei reponsável pelo frontend e algumas das telas. Gosto muito de música, tanto ouvir, quanto tocar, e estou tentando aprender teclado atualmente."
       />
 
       <AboutCard
@@ -27,7 +27,7 @@ const AboutPage = () => {
         className="bacic"
         side="left"
         name="Pedro Vitor Bacic"
-        info="Outro gostoso que vai pra Alemanha e tá aqui sofrendo porque se odeia. Mas perfeito, tudo pra mim, joga Devour comigo à noite e depois fica os dois idiota com medo na USP."
+        info="NUSP 11806934. Todo mundo me chama de Bacic/Basic, mas dizem as fics que meu nome é Pedro. Nesse projeto, me envolvi com o backend. Amo música pop/funk nacional, amo reality shows e Minecraft e Devour é o que mais jogo no momento."
       />
 
       <AboutCard
