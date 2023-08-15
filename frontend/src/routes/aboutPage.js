@@ -20,7 +20,7 @@ const AboutPage = () => {
         className="pedro"
         side="right"
         name="Pedro Henrique Viveiros"
-        info="Um gostoso que comprou PC novo pra ficar jogando Hogwarts Legacy e eu acho isso um absurdo. Porém faz brownie muito bom então a gente finge que tá tudo bem."
+        info="NUSP 11804035. Oi, tudo bem? Também me chamam de Pedrinho e nesse projeto atuei como desenvolvedor backend. Sou muito fã de Jão e tô tentando retomar a academia pós quadri rs."
       />
 
       <AboutCard
