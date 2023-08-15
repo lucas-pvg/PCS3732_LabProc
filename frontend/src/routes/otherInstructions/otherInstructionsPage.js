@@ -17,15 +17,13 @@ const OtherInstructionsPage = () => {
         { value: "AND", label: "AND" },
         { value: "EOR", label: "EOR" },
         { value: "ORR", label: "ORR" },
-        { value: "BIC", label: "BIC" },
     ];
 
     const operationOther = [
+        { value: "BIC", label: "BIC" },
         { value: "MOV", label: "MOV" },
         { value: "MVN", label: "MVN" },
         { value: "CLZ", label: "CLZ" },
-        { value: "CMP", label: "CMP" },
-        { value: "CMN", label: "CMN" },
     ];
 
     const register = [
@@ -51,10 +49,10 @@ const OtherInstructionsPage = () => {
     const [isToggledLogic, setisToggledLogic] = useState(false);
     const [isToggleImediate, setIsToggledImediate] = useState(false);
     const [selectedOperation, setSelectedOperation] = useState("");
-    const [selectedDestination, setSelectedDestination] = useState();
-    const [selectedOperand1, setSelectedOperand1] = useState();
-    const [selectedOperand2, setSelectedOperand2] = useState();
-    const [selectedInput, setSelectedInput] = useState();
+    const [selectedDestination, setSelectedDestination] = useState("");
+    const [selectedOperand1, setSelectedOperand1] = useState("");
+    const [selectedOperand2, setSelectedOperand2] = useState("");
+    const [selectedInput, setSelectedInput] = useState("");
 
     const [inputR0, setInputR0] = useState();
     const [inputR1, setInputR1] = useState();
@@ -303,7 +301,9 @@ const OtherInstructionsPage = () => {
                 <h1 className="title-oip">Demais Instruções</h1>
                 <div className="switches-oip">
                     <div className="switch-oip">
-                        <p className="switch-label-oip">Instrução Lógica</p>
+                        <p className="switch-label-oip">
+                            Instrução Lógica (4 operandos)
+                        </p>
                         <Switch
                             isToggled={isToggledLogic}
                             onToggle={() => setisToggledLogic(!isToggledLogic)}
@@ -410,60 +410,202 @@ const OtherInstructionsPage = () => {
                                 info="Selecione a instrução"
                             />
                         )}
-                        {selectedOperation.value === "AND" && (
-                            <AboutInstructions
-                                title="Informações sobre a instrução acima"
-                                info="Isso aqui é AND"
-                            />
-                        )}
-                        {selectedOperation.value === "EOR" && (
-                            <AboutInstructions
-                                title="Informações sobre a instrução acima"
-                                info="Isso aqui é EOR"
-                            />
-                        )}
-                        {selectedOperation.value === "ORR" && (
-                            <AboutInstructions
-                                title="Informações sobre a instrução acima"
-                                info="Isso aqui é ORR"
-                            />
-                        )}
-                        {selectedOperation.value === "BIC" && (
-                            <AboutInstructions
-                                title="Informações sobre a instrução acima"
-                                info="Isso aqui é BIC"
-                            />
-                        )}
-                        {selectedOperation.value === "MOV" && (
-                            <AboutInstructions
-                                title="Informações sobre a instrução acima"
-                                info="Isso aqui é MOV"
-                            />
-                        )}
-                        {selectedOperation.value === "MVN" && (
-                            <AboutInstructions
-                                title="Informações sobre a instrução acima"
-                                info="Isso aqui é MVN"
-                            />
-                        )}
-                        {selectedOperation.value === "CLZ" && (
-                            <AboutInstructions
-                                title="Informações sobre a instrução acima"
-                                info="Isso aqui é CLZ"
-                            />
-                        )}
-                        {selectedOperation.value === "CMP" && (
-                            <AboutInstructions
-                                title="Informações sobre a instrução acima"
-                                info="Isso aqui é CMP"
-                            />
-                        )}
-                        {selectedOperation.value === "CMN" && (
-                            <AboutInstructions
-                                title="Informações sobre a instrução acima"
-                                info="Isso aqui é CMN"
-                            />
-                        )}
+                        {selectedOperation.value === "AND" &&
+                            (!isToggleImediate ? (
+                                <AboutInstructions
+                                    title="Informações sobre a instrução acima"
+                                    info={
+                                        "No caso da instrução AND selecionada acima, são comparados os valores armazenados nos registradores " +
+                                        selectedOperand1.value +
+                                        " e " +
+                                        selectedOperand2.value +
+                                        " pela operação lógica AND, comparando se ambos os valores são iguais e tendo como resultado 1 apenas quando a condição for satisfeita, e armazenando o resultado em: " +
+                                        selectedDestination.value +
+                                        ". É possível observar os resultados a partir da tabela de reistradores ao lado ao executar a instrução."
+                                    }
+                                />
+                            ) : (
+                                <AboutInstructions
+                                    title="Informações sobre a instrução acima"
+                                    info={
+                                        "No caso da instrução AND selecionada acima, são comparados os valores armazenados no registrador " +
+                                        selectedOperand1.value +
+                                        " e no imediato " +
+                                        selectedInput +
+                                        " pela operação lógica AND, comparando se ambos os valores são iguais e tendo como resultado 1 apenas quando a condição for satisfeita, e armazenando o resultado em: " +
+                                        selectedDestination.value +
+                                        ". É possível observar os resultados a partir da tabela de reistradores ao lado ao executar a instrução."
+                                    }
+                                />
+                            ))}
+                        {selectedOperation.value === "EOR" &&
+                            (!isToggleImediate ? (
+                                <AboutInstructions
+                                    title="Informações sobre a instrução acima"
+                                    info={
+                                        "No caso da instrução exclusive or (EOR) selecionada acima, são comparados os valores armazenados nos registradores " +
+                                        selectedOperand1.value +
+                                        " e " +
+                                        selectedOperand2.value +
+                                        " pela operação lógica EOR (operação análoga a XOR), retornando 1 caso apenas um dos registradores tenha 1 como valor armazenado, e armazenando o resultado em: " +
+                                        selectedDestination.value +
+                                        ". É possível observar os resultados a partir da tabela de reistradores ao lado ao executar a instrução."
+                                    }
+                                />
+                            ) : (
+                                <AboutInstructions
+                                    title="Informações sobre a instrução acima"
+                                    info={
+                                        "No caso da instrução exclusive or (EOR) selecionada acima, são comparados os valores armazenados no registrador " +
+                                        selectedOperand1.value +
+                                        " e no imediato " +
+                                        selectedInput +
+                                        " pela operação lógica EOR (operação análoga a XOR), retornando 1 caso apenas o registrador ou o imeditado tenham 1 como valor armazenado, e armazenando o resultado em: " +
+                                        selectedDestination.value +
+                                        ". É possível observar os resultados a partir da tabela de reistradores ao lado ao executar a instrução."
+                                    }
+                                />
+                            ))}
+                        {selectedOperation.value === "ORR" &&
+                            (!isToggleImediate ? (
+                                <AboutInstructions
+                                    title="Informações sobre a instrução acima"
+                                    info={
+                                        "No caso da instrução OR selecionada acima, são comparados os valores armazenados nos registradores " +
+                                        selectedOperand1.value +
+                                        " e " +
+                                        selectedOperand2.value +
+                                        " pela operação lógica OR, retornando 1 caso um dos registradores tenha 1 como valor, e armazenando o resultado em: " +
+                                        selectedDestination.value +
+                                        ". É possível observar os resultados a partir da tabela de reistradores ao lado ao executar a instrução."
+                                    }
+                                />
+                            ) : (
+                                <AboutInstructions
+                                    title="Informações sobre a instrução acima"
+                                    info={
+                                        "No caso da instrução OR selecionada acima, são comparados os valores armazenados no registrador " +
+                                        selectedOperand1.value +
+                                        " e no imediato " +
+                                        selectedInput +
+                                        " pela operação lógica OR, retornando 1 caso um dos registradores tenha 1 como valor, e armazenando o resultado em: " +
+                                        selectedDestination.value +
+                                        ". É possível observar os resultados a partir da tabela de reistradores ao lado ao executar a instrução."
+                                    }
+                                />
+                            ))}
+                        {selectedOperation.value === "BIC" &&
+                            (!isToggleImediate ? (
+                                <AboutInstructions
+                                    title="Informações sobre a instrução acima"
+                                    info={
+                                        "No caso da instrução bit clear (BIC) selecionada acima, são comparados os valores armazenados nos registradores " +
+                                        selectedOperand1.value +
+                                        " e " +
+                                        selectedOperand2.value +
+                                        " pela operação lógica BIC, zerando os números 1s armazenados no primeiro registrador a partir do número binário armazenado no segundo registrador, e armazenando o resultado em: " +
+                                        selectedDestination.value +
+                                        ". É possível observar os resultados a partir da tabela de reistradores ao lado ao executar a instrução."
+                                    }
+                                />
+                            ) : (
+                                <AboutInstructions
+                                    title="Informações sobre a instrução acima"
+                                    info={
+                                        "No caso da instrução bit clear (BIC) selecionada acima, são comparados os valores armazenados no registrador " +
+                                        selectedOperand1.value +
+                                        " e no imediato " +
+                                        selectedInput +
+                                        " pela operação lógica BIC, zerando os números 1s armazenados no primeiro registrador a partir do número binário armazenado no imediato, e armazenando o resultado em: " +
+                                        selectedDestination.value +
+                                        ". É possível observar os resultados a partir da tabela de reistradores ao lado ao executar a instrução."
+                                    }
+                                />
+                            ))}
+                        {selectedOperation.value === "MOV" &&
+                            (!isToggleImediate ? (
+                                <AboutInstructions
+                                    title="Informações sobre a instrução acima"
+                                    info={
+                                        "No caso da instrução move (MOV) selecionada acima, são utilizados os valores armazenados nos registradores " +
+                                        selectedDestination.value +
+                                        " e, " +
+                                        selectedOperand1.value +
+                                        " pela operação lógica MOV, o valor no segundo operando é armazenado no primeiro operando " +
+                                        selectedDestination.value +
+                                        ". É possível observar os resultados a partir da tabela de reistradores ao lado ao executar a instrução."
+                                    }
+                                />
+                            ) : (
+                                <AboutInstructions
+                                    title="Informações sobre a instrução acima"
+                                    info={
+                                        "No caso da instrução move (MOV) selecionada acima, são utilizados os valores armazenados nos registradores " +
+                                        selectedDestination.value +
+                                        " e, " +
+                                        selectedInput +
+                                        " pela operação lógica MOV, o valor no imediato é armazenado no primeiro operando " +
+                                        selectedDestination.value +
+                                        ". É possível observar os resultados a partir da tabela de reistradores ao lado ao executar a instrução."
+                                    }
+                                />
+                            ))}
+                        {selectedOperation.value === "MVN" &&
+                            (!isToggleImediate ? (
+                                <AboutInstructions
+                                    title="Informações sobre a instrução acima"
+                                    info={
+                                        "No caso da instrução move not (MVN) selecionada acima, são utilizados os valores armazenados nos registradores " +
+                                        selectedDestination.value +
+                                        " e, " +
+                                        selectedOperand1.value +
+                                        ". Pela operação lógica MVN, o valor no segundo operando é armazenado no primeiro operando após realizar o NOT no valor registrado, armazenando em: " +
+                                        selectedDestination.value +
+                                        ". É possível observar os resultados a partir da tabela de reistradores ao lado ao executar a instrução."
+                                    }
+                                />
+                            ) : (
+                                <AboutInstructions
+                                    title="Informações sobre a instrução acima"
+                                    info={
+                                        "No caso da instrução move not (MVN) selecionada acima, são utilizados os valores armazenados nos registradores " +
+                                        selectedDestination.value +
+                                        " e, " +
+                                        selectedInput +
+                                        ". Pela operação lógica MVN, o valor do imediato é armazenado no primeiro operando após realizar o NOT no valor imediato, armazenando em: " +
+                                        selectedDestination.value +
+                                        ". É possível observar os resultados a partir da tabela de reistradores ao lado ao executar a instrução."
+                                    }
+                                />
+                            ))}
+                        {selectedOperation.value === "CLZ" &&
+                            (!isToggleImediate ? (
+                                <AboutInstructions
+                                    title="Informações sobre a instrução acima"
+                                    info={
+                                        "No caso da instrução count left zeros (CLZ) selecionada acima, são utilizados os valores armazenados nos registradores " +
+                                        selectedDestination.value +
+                                        " e, " +
+                                        selectedOperand1.value +
+                                        ". Pela operação lógica CLZ, são contados os números de zeros à esquerda do segundo registrador, armazenando em: " +
+                                        selectedDestination.value +
+                                        ". É possível observar os resultados a partir da tabela de reistradores ao lado ao executar a instrução."
+                                    }
+                                />
+                            ) : (
+                                <AboutInstructions
+                                    title="Informações sobre a instrução acima"
+                                    info={
+                                        "No caso da instrução count left zeros (CLZ) selecionada acima, são utilizados os valores armazenados nos registradores " +
+                                        selectedDestination.value +
+                                        " e, " +
+                                        selectedInput +
+                                        ". Pela operação lógica CLZ, são contados os números de zeros à esquerda do imediato, armazenando em: " +
+                                        selectedDestination.value +
+                                        ". É possível observar os resultados a partir da tabela de reistradores ao lado ao executar a instrução."
+                                    }
+                                />
+                            ))}
                     </div>
                     <div className="right-div-oip">
                         <Registers

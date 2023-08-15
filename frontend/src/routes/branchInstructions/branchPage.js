@@ -41,8 +41,8 @@ const BranchPage = () => {
     ];
 
     const [selectedOperation, setSelectedOperation] = useState("");
-    const [selectedImeDestination, setselectedImeDestination] = useState();
-    const [selectedRegDestination, setselectedRegDestination] = useState();
+    const [selectedImeDestination, setselectedImeDestination] = useState("");
+    const [selectedRegDestination, setselectedRegDestination] = useState("");
     const [isToggled, setIsToggled] = useState(false);
     const [inputR0, setInputR0] = useState();
     const [inputR1, setInputR1] = useState();
@@ -239,10 +239,10 @@ const BranchPage = () => {
     };
 
     useEffect(() => {
-        if(selectedOperation.value === "B" || selectedOperation === "BX") {
+        if (selectedOperation.value === "B" || selectedOperation === "BX") {
             setIsToggled(true);
         }
-    }, [selectedOperation])
+    }, [selectedOperation]);
 
     return (
         <div>
@@ -305,27 +305,63 @@ const BranchPage = () => {
                         {selectedOperation.value === "B" && (
                             <AboutInstructions
                                 title="Informações sobre a instrução acima"
-                                info="Isso aqui é B"
+                                info={
+                                    "No caso da instrução acima selecionada de branch (B), pegando como exemplo uma sequência de instruções sendo executada, ao encontrar com a instrução branch, o programa será desviado para o local armazenado no imediato, nesse caso sendo " +
+                                    selectedImeDestination +
+                                    ", porém sem armazenar o local onde foi realizado o desvio. É possível observar os resultados a partir da tabela de reistradores ao lado ao executar a instrução."
+                                }
                             />
                         )}
                         {selectedOperation.value === "BL" && (
                             <AboutInstructions
                                 title="Informações sobre a instrução acima"
-                                info="Isso aqui é BL"
+                                info={
+                                    "No caso da instrução acima selecionada de branch and link (BL), pegando como exemplo uma sequência de instruções sendo executada, ao encontrar com a instrução branch, o programa será desviado para o local armazenado no imediato, nesse caso sendo " +
+                                    selectedImeDestination +
+                                    ", armazenando o valor de retorno em R14. Uma vez que as instruções do desvio terminam de ser executadas, o programa volta para o valor armazenado em R14. É possível observar os resultados a partir da tabela de reistradores ao lado ao executar a instrução."
+                                }
                             />
                         )}
-                        {selectedOperation.value === "BX" && (
-                            <AboutInstructions
-                                title="Informações sobre a instrução acima"
-                                info="Isso aqui é BX"
-                            />
-                        )}
-                        {selectedOperation.value === "BLX" && (
-                            <AboutInstructions
-                                title="Informações sobre a instrução acima"
-                                info="Isso aqui é BLX"
-                            />
-                        )}
+                        {selectedOperation.value === "BX" &&
+                            (isToggled ? (
+                                <AboutInstructions
+                                    title="Informações sobre a instrução acima"
+                                    info={
+                                        "No caso da instrução acima selecionada de branch and exchange (BX), pegando como exemplo uma sequência de instruções sendo executada, ao encontrar com a instrução branch, o programa será desviado para o local armazenado no imediato, nesse caso sendo " +
+                                        selectedImeDestination +
+                                        ", porém sem armazenar o local onde foi realizado o desvio, assim como é feito no branch (B). A diferença é que é aceito tanto um imediato quanto um registrador no local de desvio. É possível observar os resultados a partir da tabela de reistradores ao lado ao executar a instrução."
+                                    }
+                                />
+                            ) : (
+                                <AboutInstructions
+                                    title="Informações sobre a instrução acima"
+                                    info={
+                                        "No caso da instrução acima selecionada de branch and exchange (BX), pegando como exemplo uma sequência de instruções sendo executada, ao encontrar com a instrução branch, o programa será desviado para o local armazenado no imediato, nesse caso sendo " +
+                                        selectedRegDestination.value +
+                                        ", porém sem armazenar o local onde foi realizado o desvio, assim como é feito no branch (B). A diferença é que é apenas um registrador no local de desvio. É possível observar os resultados a partir da tabela de reistradores ao lado ao executar a instrução."
+                                    }
+                                />
+                            ))}
+                        {selectedOperation.value === "BLX" &&
+                            (isToggled ? (
+                                <AboutInstructions
+                                    title="Informações sobre a instrução acima"
+                                    info={
+                                        "No caso da instrução acima selecionada de branch and link (BLX), pegando como exemplo uma sequência de instruções sendo executada, ao encontrar com a instrução branch, o programa será desviado para o local armazenado no imediato, nesse caso sendo " +
+                                        selectedImeDestination +
+                                        ", armazenando o valor de retorno em R14. Uma vez que as instruções do desvio terminam de ser executadas, o programa volta para o valor armazenado em R14. Como no BX, a diferença é que é aceito tanto um imediato quanto um registrador no local de desvio. É possível observar os resultados a partir da tabela de reistradores ao lado ao executar a instrução."
+                                    }
+                                />
+                            ) : (
+                                <AboutInstructions
+                                    title="Informações sobre a instrução acima"
+                                    info={
+                                        "No caso da instrução acima selecionada de branch and link (BLX), pegando como exemplo uma sequência de instruções sendo executada, ao encontrar com a instrução branch, o programa será desviado para o local armazenado no imediato, nesse caso sendo " +
+                                        selectedRegDestination.value +
+                                        ", armazenando o valor de retorno em R14. Uma vez que as instruções do desvio terminam de ser executadas, o programa volta para o valor armazenado em R14. A diferença é que é aceito tanto um imediato quanto um registrador no local de desvio. É possível observar os resultados a partir da tabela de reistradores ao lado ao executar a instrução."
+                                    }
+                                />
+                            ))}
                     </div>
                     <div className="right-div-bp">
                         <Registers
