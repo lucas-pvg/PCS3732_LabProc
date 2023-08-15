@@ -27,7 +27,7 @@ const AboutPage = () => {
         className="bacic"
         side="left"
         name="Pedro Vitor Bacic"
-        info="Outro gostoso que vai pra Alemanha e tá aqui sofrendo porque se odeia. Mas perfeito, tudo pra mim, joga Devour comigo à noite e depois fica os dois idiota com medo na USP."
+        info="NUSP 11806934. Todo mundo me chama de Bacic/Basic, mas dizem as fics que meu nome é Pedro. Nesse projeto, me envolvi com o backend. Amo música pop/funk nacional, amo reality shows e Minecraft e Devour é o que mais jogo no momento."
       />
 
       <AboutCard
