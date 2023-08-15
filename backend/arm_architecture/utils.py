@@ -19,10 +19,12 @@ def convert_to_integer(value):
 
 def update_or_create_register(register_info):
     register_label = register_info.get("label")
-    register_value = register_info.get("value")
+    register_value = register_info.get("value", None)
 
     register, _ = Register.objects.get_or_create(label=register_label)
-    register.value = convert_to_integer(register_value)
+
+    if register_value:
+        register.value = convert_to_integer(register_value)
 
     register.save()
 
@@ -41,12 +43,14 @@ def operand_register_or_immediate(operand):
 
     return update_or_create_register(operand)
 
+
 def set_return_address():
     link_register = Register.objects.get(label="R14")
     program_counter = Register.objects.get(label="R15")
 
     link_register.value = program_counter.value
     link_register.save()
+
 
 def identify_operation(operation, first_operand, second_operand):
     if operation in ["ADD"]:
@@ -76,7 +80,7 @@ def identify_operation(operation, first_operand, second_operand):
         except AttributeError:
             result = first_operand.value * second_operand["value"]
         return result
-    
+
     if operation in ["BIC"]:
         try:
             result = first_operand.value & ~second_operand.value
@@ -85,13 +89,21 @@ def identify_operation(operation, first_operand, second_operand):
         return result
 
     if operation in ["MOV"]:
-        return first_operand["value"]
+        try:
+            result = first_operand.value
+        except AttributeError:
+            result = first_operand["value"]
+        return result
 
     if operation in ["MVN"]:
-        return ~(first_operand["value"])
+        try:
+            result = ~first_operand.value
+        except AttributeError:
+            result = ~first_operand["value"]
+        return result
 
     if operation in ["CLZ"]:
-        decimal = first_operand["value"]
+        decimal = first_operand.value
         value = decimal ^ (decimal - 1) >> 1
         leading_zeroes = 32
 
@@ -125,39 +137,48 @@ def identify_operation(operation, first_operand, second_operand):
     if operation == "B":
         if "label" in first_operand:
             return "Not valid operation"
-        
-        return first_operand.value
-    
+
+        pc_register = Register.objects.get(label="R15")
+        pc_register.value = first_operand["value"]
+        pc_register.save()
+
+        return first_operand["value"]
+
     if operation in ["BL"]:
         if "label" in first_operand:
             return "Not valid operation"
-        
+
         set_return_address()
 
-        return first_operand.value
-    
+        return first_operand["value"]
+
     if operation in ["BX"]:
-        return first_operand.value
-    
+        pc_register = Register.objects.get(label="R15")
+        pc_register.value = first_operand["value"]
+        pc_register.save()
+
+        return None
+
     if operation in ["BLX"]:
         set_return_address()
 
-        return first_operand.value
+        return None
 
     return "Not valid operation"
 
 
 def execute_operation(operation, register_destination, first_operand, second_operand):
-    register_destination_label = register_destination.get("label")
-
-    register_destination = Register.objects.get(label=register_destination_label)
+    if operation not in ["B", "BL", "BLX", "BX"]:
+        register_destination_label = register_destination.get("label", None)
+        register_destination = Register.objects.get(label=register_destination_label)
 
     first_operand = operand_register_or_immediate(first_operand)
     second_operand = operand_register_or_immediate(second_operand)
 
     result = identify_operation(operation, first_operand, second_operand)
 
-    register_destination.value = result
-    register_destination.save()
+    if operation not in ["B", "BL", "BLX", "BX"]:
+        register_destination.value = result
+        register_destination.save()
 
     return Response(status=status.HTTP_200_OK)

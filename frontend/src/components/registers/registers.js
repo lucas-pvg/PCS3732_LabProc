@@ -22,6 +22,23 @@ const Registers = ({
     handleR14,
     handleR15,
     handleCPSR,
+    valueR0,
+    valueR1,
+    valueR2,
+    valueR3,
+    valueR4,
+    valueR5,
+    valueR6,
+    valueR7,
+    valueR8,
+    valueR9,
+    valueR10,
+    valueR11,
+    valueR12,
+    valueR13,
+    valueR14,
+    valueR15,
+    valueCPSR,
     disabled,
 }) => {
     return (
@@ -33,6 +50,7 @@ const Registers = ({
                         placeholder="0b binário, 0x hexa"
                         handleTextInput={handleR0}
                         disabled={disabled}
+                        value={valueR0}
                     />
                 </div>
                 <div className="left-row">
@@ -41,6 +59,7 @@ const Registers = ({
                         placeholder="0b binário, 0x hexa"
                         handleTextInput={handleR1}
                         disabled={disabled}
+                        value={valueR1}
                     />
                 </div>
                 <div className="left-row">
@@ -49,6 +68,7 @@ const Registers = ({
                         placeholder="0b binário, 0x hexa"
                         handleTextInput={handleR2}
                         disabled={disabled}
+                        value={valueR2}
                     />
                 </div>
                 <div className="left-row">
@@ -57,6 +77,7 @@ const Registers = ({
                         placeholder="0b binário, 0x hexa"
                         handleTextInput={handleR3}
                         disabled={disabled}
+                        value={valueR3}
                     />
                 </div>
                 <div className="left-row">
@@ -65,6 +86,7 @@ const Registers = ({
                         placeholder="0b binário, 0x hexa"
                         handleTextInput={handleR4}
                         disabled={disabled}
+                        value={valueR4}
                     />
                 </div>
                 <div className="left-row">
@@ -73,6 +95,7 @@ const Registers = ({
                         placeholder="0b binário, 0x hexa"
                         handleTextInput={handleR5}
                         disabled={disabled}
+                        value={valueR5}
                     />
                 </div>
                 <div className="left-row">
@@ -81,6 +104,7 @@ const Registers = ({
                         placeholder="0b binário, 0x hexa"
                         handleTextInput={handleR6}
                         disabled={disabled}
+                        value={valueR6}
                     />
                 </div>
                 <div className="left-row">
@@ -89,6 +113,7 @@ const Registers = ({
                         placeholder="0b binário, 0x hexa"
                         handleTextInput={handleR7}
                         disabled={disabled}
+                        value={valueR7}
                     />
                 </div>
             </div>
@@ -99,6 +124,7 @@ const Registers = ({
                         placeholder="0b binário, 0x hexa"
                         handleTextInput={handleR8}
                         disabled={disabled}
+                        value={valueR8}
                     />
                 </div>
                 <div className="right-row">
@@ -107,6 +133,7 @@ const Registers = ({
                         placeholder="0b binário, 0x hexa"
                         handleTextInput={handleR9}
                         disabled={disabled}
+                        value={valueR9}
                     />
                 </div>
                 <div className="right-row">
@@ -115,6 +142,7 @@ const Registers = ({
                         placeholder="0b binário, 0x hexa"
                         handleTextInput={handleR10}
                         disabled={disabled}
+                        value={valueR10}
                     />
                 </div>
                 <div className="right-row">
@@ -123,6 +151,7 @@ const Registers = ({
                         placeholder="0b binário, 0x hexar"
                         handleTextInput={handleR11}
                         disabled={disabled}
+                        value={valueR11}
                     />
                 </div>
                 <div className="right-row">
@@ -131,30 +160,34 @@ const Registers = ({
                         placeholder="0b binário, 0x hexa"
                         handleTextInput={handleR12}
                         disabled={disabled}
+                        value={valueR12}
                     />
                 </div>
                 <div className="right-row">
-                    <p className="row-label">R13</p>
+                    <p className="row-label">R13 (sp)</p>
                     <TextInputReg
                         placeholder="0b binário, 0x hexa"
                         handleTextInput={handleR13}
                         disabled={disabled}
+                        value={valueR13}
                     />
                 </div>
                 <div className="right-row">
-                    <p className="row-label">R14</p>
+                    <p className="row-label">R14 (lr)</p>
                     <TextInputReg
                         placeholder="0b binário, 0x hexa"
                         handleTextInput={handleR14}
                         disabled={disabled}
+                        value={valueR14}
                     />
                 </div>
                 <div className="right-row">
-                    <p className="row-label">R15</p>
+                    <p className="row-label">R15 (pc)</p>
                     <TextInputReg
                         placeholder="0b binário, 0x hexa"
                         handleTextInput={handleR15}
                         disabled={disabled}
+                        value={valueR15}
                     />
                 </div>
                 <div className="right-row">
@@ -163,6 +196,7 @@ const Registers = ({
                         placeholder="0b binário, 0x hexa"
                         handleTextInput={handleCPSR}
                         disabled={disabled}
+                        value={valueCPSR}
                     />
                 </div>
             </div>

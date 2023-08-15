@@ -43,7 +43,7 @@ const BranchPage = () => {
     const [selectedOperation, setSelectedOperation] = useState("");
     const [selectedDestination, setSelectedDestination] = useState();
     const [selectedOperand1, setSelectedOperand1] = useState();
-    const [isToggled, setIsToggled] = useState(false);
+    const [isToggled, setIsToggled] = useState(true);
     const [inputR0, setInputR0] = useState();
     const [inputR1, setInputR1] = useState();
     const [inputR2, setInputR2] = useState();
@@ -61,6 +61,7 @@ const BranchPage = () => {
     const [inputR14, setInputR14] = useState();
     const [inputR15, setInputR15] = useState();
     const [inputCPSR, setInputCPSR] = useState();
+    const [disableToggle, setDisableToggle] = useState(true);
 
     const handleSelectedOperation = (data) => {
         setSelectedOperation(data);
@@ -147,8 +148,8 @@ const BranchPage = () => {
 
     const onSend = () => {
         data = {
-            operation: selectedOperation,
-            registerDestination: {
+            operation: selectedOperation.label,
+            firstOperand: {
                 value: selectedDestination,
             },
         };
@@ -156,75 +157,97 @@ const BranchPage = () => {
         reg = [
             {
                 label: "R0",
-                value: inputR0,
+                value: inputR0 | 0
             },
             {
                 label: "R1",
-                value: inputR1,
+                value: inputR1 | 0
             },
             {
                 label: "R2",
-                value: inputR2,
+                value: inputR2 | 0
             },
             {
                 label: "R3",
-                value: inputR3,
+                value: inputR3 | 0
             },
             {
                 label: "R4",
-                value: inputR4,
+                value: inputR4 | 0
             },
             {
                 label: "R5",
-                value: inputR5,
+                value: inputR5 | 0
             },
             {
                 label: "R6",
-                value: inputR6,
+                value: inputR6 | 0
             },
             {
                 label: "R7",
-                value: inputR7,
+                value: inputR7 | 0
             },
             {
                 label: "R8",
-                value: inputR8,
+                value: inputR8 | 0
             },
             {
                 label: "R9",
-                value: inputR9,
+                value: inputR9 | 0
             },
             {
                 label: "R10",
-                value: inputR10,
+                value: inputR10 | 0
             },
             {
                 label: "R11",
-                value: inputR11,
+                value: inputR11 | 0
             },
             {
                 label: "R12",
-                value: inputR12,
+                value: inputR12 | 0
             },
             {
                 label: "R13",
-                value: inputR13,
+                value: inputR13 | 0
             },
             {
                 label: "R14",
-                value: inputR14,
+                value: inputR14 | 0
             },
             {
                 label: "R15",
-                value: inputR15,
+                value: inputR15 | 0
             },
             {
                 label: "CPSR",
-                value: inputCPSR,
+                value: inputCPSR | 0
             },
         ];
 
-        Service.postOperation(data);
+        Service.updateAllRegisters(reg).then((response) => console.log(response));
+        Service.postOperation(data).then((response) => {
+                Service.getRegisterList()
+                    .then((response) => {
+                        setInputR0(response[0].value);
+                        setInputR1(response[1].value);
+                        setInputR2(response[2].value);
+                        setInputR3(response[3].value);
+                        setInputR4(response[4].value);
+                        setInputR5(response[5].value);
+                        setInputR6(response[6].value);
+                        setInputR7(response[7].value);
+                        setInputR8(response[8].value);
+                        setInputR9(response[9].value);
+                        setInputR10(response[10].value);
+                        setInputR11(response[11].value);
+                        setInputR12(response[12].value);
+                        setInputR13(response[13].value);
+                        setInputR14(response[14].value);
+                        setInputR15(response[15].value);
+                        setInputCPSR(response[16].value);
+                    })
+        });
     };
 
     return (
@@ -237,6 +260,7 @@ const BranchPage = () => {
                     <Switch
                         isToggled={isToggled}
                         onToggle={() => setIsToggled(!isToggled)}
+                        disabled={disableToggle}
                     />
                 </div>
                 <div className="dropdown-row-bp">
@@ -316,7 +340,24 @@ const BranchPage = () => {
                             handleR14={handleR14}
                             handleR15={handleR15}
                             handleCPSR={handleCPSR}
-                            disabled={isToggled}
+                            valueR0={inputR0}
+                            valueR1={inputR1}
+                            valueR2={inputR2}
+                            valueR3={inputR3}
+                            valueR4={inputR4}
+                            valueR5={inputR5}
+                            valueR6={inputR6}
+                            valueR7={inputR7}
+                            valueR8={inputR8}
+                            valueR9={inputR9}
+                            valueR10={inputR10}
+                            valueR11={inputR11}
+                            valueR12={inputR12}
+                            valueR13={inputR13}
+                            valueR14={inputR14}
+                            valueR15={inputR15}
+                            valueCPSR={inputCPSR}
+                            disabled={false}
                         />
                     </div>
                 </div>
