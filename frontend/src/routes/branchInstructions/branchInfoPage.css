@@ -29,3 +29,7 @@
     align-items: flex-start;
     padding-left: 2rem;
 }
+
+.blank {
+    color: #ffffff;
+}

@@ -70,6 +70,7 @@ const BranchInfoPage = () => {
                             to="/branch"
                             text="Emulador"
                         />
+                        <div className="blank"><p>BRANCO</p></div>
                     </div>
                     <div className="right-div-bip">
                         <div style={{ whiteSpace: 'pre-line' }}>
@@ -80,6 +81,7 @@ const BranchInfoPage = () => {
                                 selectedOption={selectedOperation}
                                 placeholder="Selecione a instrução"
                             />
+                            <div className="blank"><p>BRANCO</p></div>
                         </div>
                     </div>
                 </div>
