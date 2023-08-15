@@ -10,5 +10,14 @@
 .intrucInfo {
     margin: 2rem;
     font-family: 'Inconsolata', monospace;
+    line-height: 1.5rem;
+    color: #404040;
     text-align: justify;
+
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.intrucInfo::-webkit-scrollbar {
+    display: none;
 }
