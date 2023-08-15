@@ -27,7 +27,7 @@ const AboutPage = () => {
         className="bacic"
         side="left"
         name="Pedro Vitor Bacic"
-        info="Outro gostoso que vai pra Alemanha e tá aqui sofrendo porque se odeia. Mas perfeito, tudo pra mim, joga Devour comigo à noite e depois fica os dois idiota com medo na USP."
+        info="Um entusiasta da cultura pop/funk nacional, sempre atualizado com novidades. Além disso, é um aficionado por séries, sua favorita é Desventuras em Série e ama reality shows. Nos momentos de descontração, Minecraft e Devour são seus jogos queridinhos do momento."
       />
 
       <AboutCard
