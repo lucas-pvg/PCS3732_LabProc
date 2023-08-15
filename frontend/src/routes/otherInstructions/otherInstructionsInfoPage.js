@@ -75,8 +75,7 @@ const OtherInstructionsInfoPage = () => {
                     <div className="left-div-oiip">
                         <AboutInstructions
                             title="Outras instruções: lógicas e outros operandos"
-                            info="Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-Vestibulum mi felis, egestas ut orci vel, maximus sagittis elit. Vivamus lacus ante, egestas condimentum maximus nec, maximus at leo."
+                            info="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mi felis, egestas ut orci vel, maximus sagittis elit. Vivamus lacus ante, egestas condimentum maximus nec, maximus at leo."
                         />
                         <Button
                             className="button"
