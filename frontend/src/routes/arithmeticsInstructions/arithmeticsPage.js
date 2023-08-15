@@ -41,7 +41,7 @@ const ArithmeticsPage = () => {
     ];
 
     const [isToggled, setIsToggled] = useState(false);
-    const [selectedOperation, setSelectedOperation] = useState();
+    const [selectedOperation, setSelectedOperation] = useState("");
     const [selectedDestination, setSelectedDestination] = useState();
     const [selectedOperand1, setSelectedOperand1] = useState();
     const [selectedOperand2, setSelectedOperand2] = useState();
@@ -158,7 +158,13 @@ const ArithmeticsPage = () => {
                 </div>
                 <div>
                     <div className="left-div-ap">
-                        {/* {selectedOperation.value === "ADD" && (
+                        {selectedOperation.value === "" && (
+                            <AboutInstructions
+                                title="Informações sobre a instrução acima"
+                                info=""
+                            />
+                        )}
+                        {selectedOperation.value === "ADD" && (
                             <AboutInstructions
                                 title="Informações sobre a instrução acima"
                                 info="Isso aqui é ADD"
@@ -169,7 +175,7 @@ const ArithmeticsPage = () => {
                                 title="Informações sobre a instrução acima"
                                 info="Isso aqui é SUB"
                             />
-                        )} */}
+                        )}
                     </div>
                 </div>
             </div>
