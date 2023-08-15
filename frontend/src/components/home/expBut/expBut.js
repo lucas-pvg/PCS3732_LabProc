@@ -4,7 +4,7 @@ import "./expBut.css";
 
 function ExpBut(props) {
     const [isClick, setClick] = useState(false);
-    const classes = "exp-but " + props.classes
+    const classes = "exp-but " + props.className
 
     function handleClick() {
         setClick(true);
@@ -13,15 +13,15 @@ function ExpBut(props) {
     return (
         <div className={ classes }>
             <Button
-                classes={ isClick ? "disable" : "arrow" }
+                className={ isClick ? "disable" : "arrow" }
                 onClick={ handleClick }
                 text="Start"
             />
 
             <div className={ isClick ? "wipe but-container" : "disable"}>
-                <Button classes="light" to="arithmetics-info" text="Aritméticas" />
-                <Button classes="light" to="branch-info" text="Desvio" />
-                <Button to="quiz" text="Quiz" />
+                <Button className="light" to="/arithmetics-info" text="Aritméticas" />
+                <Button className="light" to="/branch-info" text="Desvio" />
+                <Button to="/quiz" text="Quiz" />
             </div>
         </div>
     )

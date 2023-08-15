@@ -2,7 +2,7 @@ import React from "react";
 import "./title.css";
 
 function Title(props) {
-    const classes = "title " + props.classes;
+    const classes = "title " + props.className;
 
     return (
         <div className={classes}>
