@@ -24,8 +24,6 @@ const OtherInstructionsPage = () => {
         { value: "MOV", label: "MOV" },
         { value: "MVN", label: "MVN" },
         { value: "CLZ", label: "CLZ" },
-        { value: "CMP", label: "CMP" },
-        { value: "CMN", label: "CMN" },
     ];
 
     const register = [
@@ -448,18 +446,6 @@ const OtherInstructionsPage = () => {
                             <AboutInstructions
                                 title="Informações sobre a instrução acima"
                                 info="Isso aqui é CLZ"
-                            />
-                        )}
-                        {selectedOperation.value === "CMP" && (
-                            <AboutInstructions
-                                title="Informações sobre a instrução acima"
-                                info="Isso aqui é CMP"
-                            />
-                        )}
-                        {selectedOperation.value === "CMN" && (
-                            <AboutInstructions
-                                title="Informações sobre a instrução acima"
-                                info="Isso aqui é CMN"
                             />
                         )}
                     </div>
