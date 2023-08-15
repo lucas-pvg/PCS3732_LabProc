@@ -109,6 +109,46 @@ def identify_operation(operation, first_operand, second_operand):
             result = first_operand.value | second_operand["value"]
         return result
 
+    if operation == "B":
+        # O retorno precisa ser o valor de PC só aceita valor imediato
+        try:
+            #TODO:
+            pass
+        except AttributeError:
+            #TODO:
+            pass
+        return result
+    
+    if operation in ["BL"]:
+        # O retorno precisa ser o valor de PC só aceita valor imediato
+        try:
+            #TODO:
+            pass
+        except AttributeError:
+            #TODO:
+            pass
+        return result
+    
+    if operation in ["BX"]:
+        # O retorno precisa ser o valor de PC só aceita valor imediato
+        try:
+            #TODO:
+            pass
+        except AttributeError:
+            #TODO:
+            pass
+        return result
+    
+    if operation in ["BLX"]:
+        # O retorno precisa ser o valor de PC só aceita valor imediato
+        try:
+            #TODO:
+            pass
+        except AttributeError:
+            #TODO:
+            pass
+        return result
+
     return "Not valid operation"
 
 
