@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from .models import Register
 
 
-def has_overflow(result, first_operand, second_operand):
+def has_overflow(operation, first_operand, second_operand):
     first_operand_value_two_complement = twos_complement(first_operand.value)
 
     try:
@@ -12,20 +12,13 @@ def has_overflow(result, first_operand, second_operand):
     except AttributeError:
         second_operand_value_two_complement = twos_complement(second_operand["value"])
 
-    result_two_complement = twos_complement(result)
-
-    return (
-        result_two_complement > 0
-        and (
-            first_operand_value_two_complement < 0
-            and second_operand_value_two_complement < 0
-        )
-        or result_two_complement < 0
-        and (
-            first_operand_value_two_complement > 0
-            and second_operand_value_two_complement > 0
-        )
+    result_two_complement = identify_operation(
+        operation,
+        first_operand_value_two_complement,
+        second_operand_value_two_complement,
     )
+
+    return result_two_complement > 2**31 or result_two_complement < -(2**31)
 
 
 def twos_complement(value):
@@ -44,7 +37,7 @@ def convert_to_integer(value):
     if "0b" in value:
         return int(value, 2)
 
-    return int(value[1:])
+    return int(value)
 
 
 def update_or_create_register(register_info):
@@ -151,9 +144,9 @@ def update_cpsr(result, overflow):
     if result == 0:
         cpsr_value += 2**30
     if result.bit_length() > 32:
-        cpsr_value += 3**29
+        cpsr_value += 2**29
     if overflow:
-        cpsr_value += 3**28
+        cpsr_value += 2**28
 
     cpsr_register.value = cpsr_value
 
@@ -163,8 +156,8 @@ def update_cpsr(result, overflow):
 def change_result_in_case_of_overflow_or_carry(result_preliminary, overflow):
     result = result_preliminary
 
-    if overflow:
-        result = result_preliminary - 2 ^ 33
+    if overflow or result.bit_length() > 32:
+        result = result_preliminary - 2**33
 
     return result
 
@@ -179,12 +172,11 @@ def execute_operation(operation, register_destination, first_operand, second_ope
 
     result = identify_operation(operation, first_operand, second_operand)
 
-    overflow = has_overflow(operation, first_operand, second_operand)
-
     register_destination.value = result
     register_destination.save()
 
     if operation[-1] == "S":
+        overflow = has_overflow(operation, first_operand, second_operand)
         update_cpsr(result, overflow)
 
     return Response(status=status.HTTP_200_OK)

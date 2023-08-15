@@ -7,7 +7,7 @@ class Register(models.Model):
     label = models.CharField(max_length=5)
     value = models.IntegerField(
         default=0,
-        validators=[MaxValueValidator(2147483647), MinValueValidator(-2147483647)],
+        validators=[MaxValueValidator(2**31), MinValueValidator(-(2**31))],
     )
 
     @property
