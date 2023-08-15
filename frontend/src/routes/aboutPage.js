@@ -27,7 +27,7 @@ const AboutPage = () => {
         className="bacic"
         side="left"
         name="Pedro Vitor Bacic"
-        info="Um entusiasta da cultura pop/funk nacional, sempre atualizado com novidades. Além disso, é um aficionado por séries, sua favorita é Desventuras em Série e ama reality shows. Nos momentos de descontração, Minecraft e Devour são seus jogos queridinhos do momento."
+        info="NUSP 11806934. Todo mundo me chama de Bacic/Basic, mas dizem as fics que meu nome é Pedro. Nesse projeto, me envolvi com o backend. Amo música pop/funk nacional, amo reality shows e Minecraft e Devour é o que mais jogo no momento."
       />
 
       <AboutCard
