@@ -17,10 +17,10 @@ const OtherInstructionsPage = () => {
         { value: "AND", label: "AND" },
         { value: "EOR", label: "EOR" },
         { value: "ORR", label: "ORR" },
+        { value: "BIC", label: "BIC" },
     ];
 
     const operationOther = [
-        { value: "BIC", label: "BIC" },
         { value: "MOV", label: "MOV" },
         { value: "MVN", label: "MVN" },
         { value: "CLZ", label: "CLZ" },
