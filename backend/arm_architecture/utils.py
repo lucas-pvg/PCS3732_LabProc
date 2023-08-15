@@ -14,7 +14,7 @@ def convert_to_integer(value):
     if "0b" in value:
         return int(value, 2)
 
-    return int(value[1:])
+    return int(value)
 
 
 def update_or_create_register(register_info):

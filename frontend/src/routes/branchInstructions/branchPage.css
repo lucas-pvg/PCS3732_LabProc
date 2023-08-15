@@ -2,8 +2,14 @@
     margin: 2rem;
 }
 
-.switch-bp {
-    left: 91%;
+.imediate-switch-bp {
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+}
+
+.switch-label-bp {
+    font-family: 'Inconsolata', monospace;
 }
 
 .instrucTitle-bp {
@@ -22,4 +28,20 @@
 
 .dropdown-bp {
     font-family: 'Inconsolata', monospace;
+}
+
+.left-div-bp {
+    width: 50%;
+    height: 500px;
+    float: left;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-div-bp {
+    width: 50%;
+    height: 500px;
+    float: right;
+    align-items: center;
+    justify-content: center;
 }

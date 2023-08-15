@@ -2,17 +2,33 @@
     margin: 2rem;
 }
 
-.switch {
-    left: 91%;
-}
-
-.instrucTitle {
+.title-oip {
     font-family: 'Montserrat', sans-serif;
 }
 
-.dropdown-row {
+.switches-oip {
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+}
+
+.switch-oip {
+    display: flex;
+    align-items: center;
+}
+
+.switch-label-oip {
+    font-family: 'Inconsolata', monospace;
+}
+
+.flex-oip {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-row-oip {
     border-radius: 20px;
-    width: 90%;
+    width: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,6 +36,22 @@
     margin: auto;
 }
 
-.dropdown {
+.dropdown-oip {
     font-family: 'Inconsolata', monospace;
+}
+
+.left-div-oip {
+    width: 50%;
+    height: 500px;
+    float: left;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-div-oip {
+    width: 50%;
+    height: 500px;
+    float: right;
+    align-items: center;
+    justify-content: center;
 }

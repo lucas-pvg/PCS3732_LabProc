@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
 from .models import Register
-from .serializers import RegisterSerializer
+from .serializers import ArmInstructionsSerializer, RegisterSerializer
 from .utils import execute_operation, update_or_create_register
 
 
@@ -35,6 +35,8 @@ class RegisterView(ModelViewSet):
 
 
 class ArmInstructionsView(ModelViewSet):
+    serializer_class = ArmInstructionsSerializer
+
     def post(self, request):
         data = request.data
 

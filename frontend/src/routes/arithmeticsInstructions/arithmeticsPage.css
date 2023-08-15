@@ -2,8 +2,14 @@
     margin: 2rem;
 }
 
-.switch-ap {
-    left: 91%;
+.imediate-switch-ap {
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+}
+
+.switch-label-ap {
+    font-family: 'Inconsolata', monospace;
 }
 
 .instrucTitle-ap {
@@ -22,4 +28,20 @@
 
 .dropdown-ap {
     font-family: 'Inconsolata', monospace;
+}
+
+.left-div-ap {
+    width: 50%;
+    height: 500px;
+    float: left;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-div-ap {
+    width: 50%;
+    height: 500px;
+    float: right;
+    align-items: center;
+    justify-content: center;
 }

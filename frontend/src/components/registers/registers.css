@@ -1,0 +1,42 @@
+.registers {
+    margin: 2.5rem;
+    justify-content: center;
+}
+
+.right-collum {
+    width: 50%;
+    float: right;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inconsolata', monospace;
+}
+
+.left-collum {
+    width: 50%;
+    height: auto;
+    float: left;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inconsolata', monospace;
+}
+
+.right-row {
+    display: flex;
+    align-items: center;
+    background-color: #B4EDD2;
+    border-radius: 10px;
+    margin: 0.25rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-row {
+    display: flex;
+    align-items: center;
+    background-color: #B4EDD2;
+    border-radius: 10px;
+    margin: 0.25rem;
+    align-items: center;
+    justify-content: center;
+}
