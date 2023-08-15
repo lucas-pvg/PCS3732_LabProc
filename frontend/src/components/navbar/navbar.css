@@ -1,7 +1,7 @@
 .home-nav {
     display: flex;
     justify-content: flex-end;
-    padding-right: 3rem;
+    padding-right: 4rem;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -35,14 +35,13 @@ li {
 }
 
 .navbar {
-    height: 4rem;
     display: flex;
     background-color: #B18FCF;
     align-items: center;
     justify-content: space-between;
     font-family: 'Montserrat', sans-serif;
-    padding-left: 3rem;
-    padding-right: 3rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
 }
 
 .logo {
@@ -64,4 +63,8 @@ li {
 .navbar ul {
     display: flex;
     gap: 2.5rem;
+}
+
+.disable {
+    display: none;
 }

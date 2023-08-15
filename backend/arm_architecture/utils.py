@@ -41,6 +41,12 @@ def operand_register_or_immediate(operand):
 
     return update_or_create_register(operand)
 
+def set_return_address():
+    link_register = Register.objects.get(label="R14")
+    program_counter = Register.objects.get(label="R15")
+
+    link_register.value = program_counter.value
+    link_register.save()
 
 def identify_operation(operation, first_operand, second_operand):
     if operation in ["ADD"]:
@@ -69,6 +75,13 @@ def identify_operation(operation, first_operand, second_operand):
             result = first_operand.value * second_operand.value
         except AttributeError:
             result = first_operand.value * second_operand["value"]
+        return result
+    
+    if operation in ["BIC"]:
+        try:
+            result = first_operand.value & ~second_operand.value
+        except AttributeError:
+            result = first_operand.value & ~second_operand["value"]
         return result
 
     if operation in ["MOV"]:
@@ -108,6 +121,28 @@ def identify_operation(operation, first_operand, second_operand):
         except AttributeError:
             result = first_operand.value | second_operand["value"]
         return result
+
+    if operation == "B":
+        if "label" in first_operand:
+            return "Not valid operation"
+        
+        return first_operand.value
+    
+    if operation in ["BL"]:
+        if "label" in first_operand:
+            return "Not valid operation"
+        
+        set_return_address()
+
+        return first_operand.value
+    
+    if operation in ["BX"]:
+        return first_operand.value
+    
+    if operation in ["BLX"]:
+        set_return_address()
+
+        return first_operand.value
 
     return "Not valid operation"
 
