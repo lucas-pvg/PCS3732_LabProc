@@ -1,15 +1,16 @@
 .otherInstruc {
-    margin: 2rem;
+    margin: 2rem 4rem;
 }
 
 .title-oip {
     font-family: 'Montserrat', sans-serif;
+    color: #404040;
 }
 
 .switches-oip {
     display: flex;
     align-items: center;
-    margin: 1rem;
+    margin: 1rem 0;
 }
 
 .switch-oip {
@@ -19,6 +20,7 @@
 
 .switch-label-oip {
     font-family: 'Inconsolata', monospace;
+    color: #404040;
 }
 
 .flex-oip {
@@ -32,7 +34,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #B4EDD2;
+    background-color: #E8D7F1;
     margin: auto;
 }
 
@@ -55,3 +57,13 @@
     align-items: center;
     justify-content: center;
 }
+
+.row-label {
+    font-family: 'Inconsolata', monospace;
+    color: #404040;
+}
+
+.left-div-oip .card .title {
+    margin-top: 3rem;
+}
+

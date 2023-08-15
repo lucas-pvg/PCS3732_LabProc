@@ -42,10 +42,10 @@ const ArithmeticsPage = () => {
 
     const [isToggled, setIsToggled] = useState(false);
     const [selectedOperation, setSelectedOperation] = useState("");
-    const [selectedDestination, setSelectedDestination] = useState();
-    const [selectedOperand1, setSelectedOperand1] = useState();
-    const [selectedOperand2, setSelectedOperand2] = useState();
-    const [selectedInput, setSelectedInput] = useState();
+    const [selectedDestination, setSelectedDestination] = useState("");
+    const [selectedOperand1, setSelectedOperand1] = useState("");
+    const [selectedOperand2, setSelectedOperand2] = useState("");
+    const [selectedInput, setSelectedInput] = useState("");
 
     const [inputR0, setInputR0] = useState();
     const [inputR1, setInputR1] = useState();
@@ -91,69 +91,67 @@ const ArithmeticsPage = () => {
 
     const handleR1 = (event) => {
         setInputR1(event.target.value);
-    }
-
+    };
 
     const handleR2 = (event) => {
         setInputR2(event.target.value);
-    }
-
+    };
 
     const handleR3 = (event) => {
         setInputR3(event.target.value);
-    }
+    };
 
     const handleR4 = (event) => {
         setInputR4(event.target.value);
-    }
+    };
 
     const handleR5 = (event) => {
         setInputR5(event.target.value);
-    }
+    };
 
     const handleR6 = (event) => {
         setInputR6(event.target.value);
-    }
+    };
 
     const handleR7 = (event) => {
         setInputR7(event.target.value);
-    }
+    };
 
     const handleR8 = (event) => {
         setInputR8(event.target.value);
-    }
+    };
 
     const handleR9 = (event) => {
         setInputR9(event.target.value);
-    }
+    };
 
     const handleR10 = (event) => {
         setInputR10(event.target.value);
-    }
+    };
 
     const handleR11 = (event) => {
         setInputR11(event.target.value);
-    }
+    };
 
     const handleR12 = (event) => {
         setInputR12(event.target.value);
-    }
+    };
 
     const handleR13 = (event) => {
         setInputR13(event.target.value);
-    }
+    };
 
     const handleR14 = (event) => {
         setInputR14(event.target.value);
-    }
+    };
 
     const handleR15 = (event) => {
         setInputR15(event.target.value);
-    }
+    };
 
     const handleCPSR = (event) => {
         setInputCPSR(event.target.value);
-    }
+    };
 
     var data = {};
     var reg = [];
@@ -192,75 +190,77 @@ const ArithmeticsPage = () => {
         reg = [
             {
                 label: "R0",
-                value: inputR0
+                value: inputR0,
             },
             {
                 label: "R1",
-                value: inputR1
+                value: inputR1,
             },
             {
                 label: "R2",
-                value: inputR2
+                value: inputR2,
             },
             {
                 label: "R3",
-                value: inputR3
+                value: inputR3,
             },
             {
                 label: "R4",
-                value: inputR4
+                value: inputR4,
             },
             {
                 label: "R5",
-                value: inputR5
+                value: inputR5,
             },
             {
                 label: "R6",
-                value: inputR6
+                value: inputR6,
             },
             {
                 label: "R7",
-                value: inputR7
+                value: inputR7,
             },
             {
                 label: "R8",
-                value: inputR8
+                value: inputR8,
             },
             {
                 label: "R9",
-                value: inputR9
+                value: inputR9,
             },
             {
                 label: "R10",
-                value: inputR10
+                value: inputR10,
             },
             {
                 label: "R11",
-                value: inputR11
+                value: inputR11,
             },
             {
                 label: "R12",
-                value: inputR12
+                value: inputR12,
             },
             {
                 label: "R13",
-                value: inputR13
+                value: inputR13,
             },
             {
                 label: "R14",
-                value: inputR14
+                value: inputR14,
             },
             {
                 label: "R15",
-                value: inputR15
+                value: inputR15,
             },
             {
                 label: "CPSR",
-                value: inputCPSR
+                value: inputCPSR,
             },
-        ]
+        ];
 
-        Service.updateAllRegisters(reg).then((response) => console.log(response));
+        Service.updateAllRegisters(reg).then((response) =>
+            console.log(response)
+        );
         Service.postOperation(data).then((response) => console.log(response));
     };
 
@@ -274,6 +274,7 @@ const ArithmeticsPage = () => {
                     <Switch
                         isToggled={isToggled}
                         onToggle={() => setIsToggled(!isToggled)}
+                        disabled={false}
                     />
                 </div>
                 <div className="dropdown-row-ap">
@@ -323,30 +324,118 @@ const ArithmeticsPage = () => {
                                 info="Selecione a instrução"
                             />
                         )}
-                        {selectedOperation.value === "ADD" && (
-                            <AboutInstructions
-                                title="Informações sobre a instrução acima"
-                                info="Isso aqui é ADD"
-                            />
-                        )}
-                        {selectedOperation.value === "SUB" && (
-                            <AboutInstructions
-                                title="Informações sobre a instrução acima"
-                                info="Isso aqui é SUB"
-                            />
-                        )}
-                        {selectedOperation.value === "RSB" && (
-                            <AboutInstructions
-                                title="Informações sobre a instrução acima"
-                                info="Isso aqui é RSB"
-                            />
-                        )}
-                        {selectedOperation.value === "MUL" && (
-                            <AboutInstructions
-                                title="Informações sobre a instrução acima"
-                                info="Isso aqui é MUL"
-                            />
-                        )}
+                        {selectedOperation.value === "ADD" &&
+                            (!isToggled ? (
+                                <AboutInstructions
+                                    title="Informações sobre a instrução acima"
+                                    info={
+                                        "No caso da instrução de adição (ADD) selecionada, a ALU pega os valores armazenados nos registradores " +
+                                        selectedOperand1.value +
+                                        " e " +
+                                        selectedOperand2.value +
+                                        ", soma os seus valores e armazena em " +
+                                        selectedDestination.value +
+                                        ". É possível observar os resultados a partir da tabela de reistradores ao lado ao executar a instrução."
+                                    }
+                                />
+                            ) : (
+                                <AboutInstructions
+                                    title="Informações sobre a instrução acima"
+                                    info={
+                                        "No caso da instrução de adição (ADD) selecionada, a ALU pega os valores armazenados no registrador " +
+                                        selectedOperand1.value +
+                                        " e no imediato " +
+                                        selectedInput +
+                                        ", somando os seus valores e armazenando em " +
+                                        selectedDestination.value +
+                                        ". É possível observar os resultados a partir da tabela de reistradores ao lado ao executar a instrução."
+                                    }
+                                />
+                            ))}
+                        {selectedOperation.value === "SUB" &&
+                            (!isToggled ? (
+                                <AboutInstructions
+                                    title="Informações sobre a instrução acima"
+                                    info={
+                                        "No caso da instrução de subtração (SUB) selecionada, a ALU pega os valores armazenados nos registradores " +
+                                        selectedOperand1.value +
+                                        " e " +
+                                        selectedOperand2.value +
+                                        " subtrai os seus valores na mesma ordem (primeiro registrador menos o segundo registrador) e armazena em " +
+                                        selectedDestination.value +
+                                        ". É possível observar os resultados a partir da tabela de reistradores ao lado ao executar a instrução."
+                                    }
+                                />
+                            ) : (
+                                <AboutInstructions
+                                    title="Informações sobre a instrução acima"
+                                    info={
+                                        "No caso da instrução de subtração (SUB) selecionada, a ALU pega os valores armazenados no registrador " +
+                                        selectedOperand1.value +
+                                        " e no imediato " +
+                                        selectedInput +
+                                        ", subtraindo os seus valores na mesma ordem (primeiro registrador menos o imediato) e armazenando em " +
+                                        selectedDestination.value +
+                                        ". É possível observar os resultados a partir da tabela de reistradores ao lado ao executar a instrução."
+                                    }
+                                />
+                            ))}
+                        {selectedOperation.value === "RSB" &&
+                            (!isToggled ? (
+                                <AboutInstructions
+                                    title="Informações sobre a instrução acima"
+                                    info={
+                                        "No caso da instrução de substração inversa (RSB) selecionada, a ALU pega os valores armazenados nos registradores " +
+                                        selectedOperand1.value +
+                                        " e " +
+                                        selectedOperand2.value +
+                                        " subtrai os seus valores na ordem inversa (segundo registrador menos o primeiro registrador) e armazena em " +
+                                        selectedDestination.value +
+                                        ". É possível observar os resultados a partir da tabela de reistradores ao lado ao executar a instrução."
+                                    }
+                                />
+                            ) : (
+                                <AboutInstructions
+                                    title="Informações sobre a instrução acima"
+                                    info={
+                                        "No caso da instrução de substração inversa (RSB) selecionada, a ALU pega os valores armazenados no registrador " +
+                                        selectedOperand1.value +
+                                        " e no imediato " +
+                                        selectedInput +
+                                        ", subtraindo os seus valores na ordem inversa (imediato menos primeiro registardor) e armazenando em " +
+                                        selectedDestination.value +
+                                        ". É possível observar os resultados a partir da tabela de reistradores ao lado ao executar a instrução."
+                                    }
+                                />
+                            ))}
+                        {selectedOperation.value === "MUL" &&
+                            (!isToggled ? (
+                                <AboutInstructions
+                                    title="Informações sobre a instrução acima"
+                                    info={
+                                        "No caso da instrução de multiplicação (MUL) selecionada, a ALU pega os valores armazenados nos registradores " +
+                                        selectedOperand1.value +
+                                        " e " +
+                                        selectedOperand2.value +
+                                        " multiplica os seus valores (primeiro registrador vezes o segundo registrador) e armazena em " +
+                                        selectedDestination.value +
+                                        ". É possível observar os resultados a partir da tabela de reistradores ao lado ao executar a instrução."
+                                    }
+                                />
+                            ) : (
+                                <AboutInstructions
+                                    title="Informações sobre a instrução acima"
+                                    info={
+                                        "No caso da instrução de multiplicação (MUL)  selecionada, a ALU pega os valores armazenados no registrador " +
+                                        selectedOperand1.value +
+                                        " e no imediato " +
+                                        selectedInput +
+                                        ", multiplicando os seus valores (primeiro registrador vezes o imediato) e armazenando em " +
+                                        selectedDestination.value +
+                                        ". É possível observar os resultados a partir da tabela de reistradores ao lado ao executar a instrução."
+                                    }
+                                />
+                            ))}
                     </div>
                     <div className="right-div-ap">
                         <Registers

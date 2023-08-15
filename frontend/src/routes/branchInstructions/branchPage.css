@@ -1,19 +1,20 @@
 .branchPage {
-    margin: 2rem;
+    margin: 2rem 4rem;
 }
 
 .imediate-switch-bp {
     display: flex;
     align-items: center;
-    margin: 1rem;
 }
 
 .switch-label-bp {
     font-family: 'Inconsolata', monospace;
+    color: #404040;
 }
 
 .instrucTitle-bp {
     font-family: 'Montserrat', sans-serif;
+    color: #404040;
 }
 
 .dropdown-row-bp {
@@ -44,4 +45,13 @@
     float: right;
     align-items: center;
     justify-content: center;
+}
+
+.row-label {
+    font-family: 'Inconsolata', monospace;
+    color: #404040;
+}
+
+.left-div-bp .card .title {
+    margin-top: 3rem;
 }

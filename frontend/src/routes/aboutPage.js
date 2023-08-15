@@ -13,7 +13,7 @@ const AboutPage = () => {
         className="lucas"
         side="left"
         name="Lucas Pavan Garieri"
-        info="Alguém que não dorme tem muito tempo e precisa urgentemente de férias. Seus maiores medos são feedback da Tereza, exercício surpresa de econo e cheiro de Falquetto. Also alguém paga minha FEA Funk?"
+        info="NUSP 11806614. Bom, todo mundo me chama de Luquinhas, ou alguma variação como Lu, e, nesse projeto, fiquei reponsável pelo frontend e algumas das telas. Gosto muito de música, tanto ouvir, quanto tocar, e estou tentando aprender teclado atualmente."
       />
 
       <AboutCard

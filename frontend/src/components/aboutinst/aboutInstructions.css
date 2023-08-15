@@ -1,12 +1,11 @@
-.card {
-    margin: 2.5rem;
-}
-
-.title {
+.card .title {
     font-family: 'Montserrat', sans-serif;
 }
 
-.text {
+.card .text {
     font-family: 'Inconsolata', monospace;
+    font-weight: 300;
+    line-height: 2rem;
     text-align: justify;
+    margin-bottom: 2rem;
 }
