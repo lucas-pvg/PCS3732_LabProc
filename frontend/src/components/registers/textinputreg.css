@@ -1,0 +1,11 @@
+.input-reg {
+    border-color: lightgrey;
+    border-style: none;
+    height: 34px;
+    border-radius: 5px;
+    font-family: 'Inconsolata', monospace;
+    font-size: medium;
+    text-align: center;
+    width: auto;
+    margin: 1rem;
+}

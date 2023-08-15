@@ -2,24 +2,22 @@
     margin: 2rem;
 }
 
-.switch {
-    left: 91%;
+.infos-oiip {
+    margin-bottom: 2rem;
 }
 
-.instrucTitle {
-    font-family: 'Montserrat', sans-serif;
-}
-
-.dropdown-row {
-    border-radius: 20px;
-    width: 90%;
-    display: flex;
+.left-div-oiip {
+    width: 50%;
+    height: 500px;
+    float: left;
     align-items: center;
     justify-content: center;
-    background-color: #B4EDD2;
-    margin: auto;
 }
 
-.dropdown {
-    font-family: 'Inconsolata', monospace;
+.right-div-oiip {
+    width: 50%;
+    float: right;
+    height: 500px;
+    align-items: center;
+    justify-content: center;
 }
