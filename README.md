@@ -39,6 +39,9 @@ Para a aplicação, a divisão de telas foi feita a partir de cada categoria de 
 -   `nvm use 19.5.0`
 -   `cd frontend`
 -   `npm install`
+-   `npm install react-router-dom`
+-   `npm install react-icons`
+-   `npm install react-select`
 -   `npm start`
 
 ## Configuração manual do backend
