@@ -86,6 +86,7 @@ const OtherInstructionsInfoPage = () => {
                             to="/other-instructions"
                             text="Emulador"
                         />
+                        <div className="blank"><p>BRANCO</p></div>
                     </div>
                     <div className="right-div-oiip">
                         <div style={{ whiteSpace: 'pre-line' }}>
@@ -96,6 +97,7 @@ const OtherInstructionsInfoPage = () => {
                                 selectedOption={selectedOperation}
                                 placeholder="Selecione a instrução"
                             />
+                            <div className="blank"><p>BRANCO</p></div>
                         </div>
                     </div>
                 </div>

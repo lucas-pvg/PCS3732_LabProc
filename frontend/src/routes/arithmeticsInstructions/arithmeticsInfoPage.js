@@ -65,6 +65,7 @@ const ArithmeticsInfoPage = () => {
                             vitais para uma ampla gama de aplicações, tornando-os versáteis e essenciais em muitos contextos tecnológicos."
                         />
                         <Button to="/arithmetics" text="Emulador" />
+                        <div className="blank"><p>BRANCO</p></div>
                     </div>
                     <div className="right-div-aip">
                         <div style={{ whiteSpace: 'pre-line' }}>
@@ -75,6 +76,7 @@ const ArithmeticsInfoPage = () => {
                                 selectedOption={selectedOperation}
                                 placeholder="Selecione a instrução"
                             />
+                            <div className="blank"><p>BRANCO</p></div>
                         </div>
                     </div>
                 </div>
