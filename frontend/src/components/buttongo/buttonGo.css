@@ -1,0 +1,13 @@
+.button-go {
+    background-color: #B18FCF;
+    border: none;
+    color: white;
+    padding: 13px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 1rem;
+    border-radius: 50%;
+    font-family: 'Inconsolata', monospace;
+}
