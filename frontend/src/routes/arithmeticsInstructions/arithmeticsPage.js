@@ -18,7 +18,6 @@ const ArithmeticsPage = () => {
         { value: "SUB", label: "SUB" },
         { value: "RSB", label: "RSB" },
         { value: "MUL", label: "MUL" },
-        { value: "MLA", label: "MLA" },
     ];
 
     const register = [
@@ -346,12 +345,6 @@ const ArithmeticsPage = () => {
                             <AboutInstructions
                                 title="Informações sobre a instrução acima"
                                 info="Isso aqui é MUL"
-                            />
-                        )}
-                        {selectedOperation.value === "MLA" && (
-                            <AboutInstructions
-                                title="Informações sobre a instrução acima"
-                                info="Isso aqui é MLA"
                             />
                         )}
                     </div>
