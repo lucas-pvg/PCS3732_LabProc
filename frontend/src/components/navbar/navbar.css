@@ -1,7 +1,7 @@
 .home-nav {
     display: flex;
     justify-content: flex-end;
-    padding-right: 3rem;
+    padding-right: 4rem;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -40,8 +40,8 @@ li {
     align-items: center;
     justify-content: space-between;
     font-family: 'Montserrat', sans-serif;
-    padding-left: 3rem;
-    padding-right: 3rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
 }
 
 .logo {
