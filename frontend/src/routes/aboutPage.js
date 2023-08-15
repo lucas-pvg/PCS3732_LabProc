@@ -35,7 +35,7 @@ const AboutPage = () => {
         side="right"
         end={true}
         name="Sophia Lie Asakura"
-        info="Uma gostosa que vai pro Japão e não precisava mais ter que aturar a gente ou esse professor, mas ela ainda tenta. Sei lá, vai entender."
+        info="NUSP 11806656. A maioria das pessoas da Poli me chamam de Lie com exceção do Luquinhas. Nesse projeto fiquei responsável pelo frontend. Gosto muito de dançar e queria voltar a praticar no futuro."
       />
 
     </div>

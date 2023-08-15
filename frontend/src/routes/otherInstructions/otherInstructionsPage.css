@@ -39,3 +39,19 @@
 .dropdown-oip {
     font-family: 'Inconsolata', monospace;
 }
+
+.left-div-oip {
+    width: 50%;
+    height: 500px;
+    float: left;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-div-oip {
+    width: 50%;
+    height: 500px;
+    float: right;
+    align-items: center;
+    justify-content: center;
+}

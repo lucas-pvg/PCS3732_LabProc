@@ -32,6 +32,16 @@
 
 .left-div-ap {
     width: 50%;
-    display: flex;
+    height: 500px;
+    float: left;
     align-items: center;
+    justify-content: center;
+}
+
+.right-div-ap {
+    width: 50%;
+    height: 500px;
+    float: right;
+    align-items: center;
+    justify-content: center;
 }
