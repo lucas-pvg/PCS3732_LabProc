@@ -41,6 +41,12 @@ def operand_register_or_immediate(operand):
 
     return update_or_create_register(operand)
 
+def set_return_address():
+    link_register = Register.objects.get(label="R14")
+    program_counter = Register.objects.get(label="R15")
+
+    link_register.value = program_counter.value
+    link_register.save()
 
 def identify_operation(operation, first_operand, second_operand):
     if operation in ["ADD"]:
@@ -119,7 +125,7 @@ def identify_operation(operation, first_operand, second_operand):
         if "label" in first_operand:
             return "Not valid operation"
         
-        #TODO: Mudar R14
+        set_return_address()
 
         return first_operand.value
     
@@ -127,7 +133,7 @@ def identify_operation(operation, first_operand, second_operand):
         return first_operand.value
     
     if operation in ["BLX"]:
-        #TODO: Mudar R14
+        set_return_address()
 
         return first_operand.value
 
