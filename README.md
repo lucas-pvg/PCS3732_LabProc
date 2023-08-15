@@ -12,20 +12,23 @@ O projeto está, principalmente, divido entre os diretórios backend e frontend,
 
 Para a aplicação, a divisão de telas foi feita a partir de cada categoria de instrução e ser simulada e outras funcionalidades da aplicação. Dessa forma, temos uma tela dedicada para a descrição e simulação de cada tipo de instrução citada anteriormente, sendo uma para aritméticas, uma para desvios e uma para os demais detalhes da arquitetura. Além disso, temos uma tela principal, uma tela contendo informações sobre os integrantes do grupo e uma tela de quiz, na qual o usuário pode responder uma série de perguntas sobre a arquitetura ARM e receber o resultado do seu desempenho.
 
+## Dependências
+
+-   Python 3.10
+-   Django 4.2.x
+-   Node 19.5.0
+
 ## Configuração automática
 
--   `./dev_setup.bat`
+-   Para desenvolvedores: `./dev_setup.bat`
+-   Para fins de teste: `./test_setup.bat`
 
-## Configuração do frontend
+## Configuração manual do frontend
 
 ### Instalação por .exe
 
 -   Instale o NodeJS pelo website: https://nodejs.org/en/blog/release/v19.5.0
 -   Entre na pasta do projeto PCS3732_LabProc/frontend e rode o seguinte comando para instalar as dependências do node: `npm install`
--   Após isso, rode ainda nessa pasta os seguintes comandos:
--   `npm install react-router-dom`
--   `npm install react-icons`
--   `npm install react-select`
 -   Para subir o ambiente entre na pasta emulador-didatico e rode o comando: `npm start`
 
 ### Instalação por linha de comando
@@ -38,12 +41,10 @@ Para a aplicação, a divisão de telas foi feita a partir de cada categoria de 
 -   `npm install`
 -   `npm start`
 
-## Configuração do backend
+## Configuração manual do backend
 
 -   `cd backend/`
 -   `py -m pip install pipenv`
--   `pipenv install --dev --python 3.10`
--   `pipenv run pre-commit install`
+-   `pipenv install --python 3.10`
 -   `pipenv run python manage.py migrate`
--   `pipenv run python manage.py createsuperuser`
 -   `pipenv run python manage.py runserver`
