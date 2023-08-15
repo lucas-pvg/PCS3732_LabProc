@@ -1,0 +1,41 @@
+.otherInstruc {
+    margin: 2rem;
+}
+
+.title-oip {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.switches-oip {
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+}
+
+.switch-oip {
+    display: flex;
+    align-items: center;
+}
+
+.switch-label-oip {
+    font-family: 'Inconsolata', monospace;
+}
+
+.flex-oip {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-row-oip {
+    border-radius: 20px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #B4EDD2;
+    margin: auto;
+}
+
+.dropdown-oip {
+    font-family: 'Inconsolata', monospace;
+}

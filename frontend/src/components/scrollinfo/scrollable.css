@@ -1,0 +1,14 @@
+.scrollView {
+    background-color: #E8D7F1;
+    width: auto;
+    height: 50%;
+    margin: 1rem;
+    overflow-y: scroll;
+    border-radius: 20px;
+}
+
+.intrucInfo {
+    margin: 2rem;
+    font-family: 'Inconsolata', monospace;
+    text-align: justify;
+}

@@ -8,14 +8,14 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import HomePage from "./routes/homePage";
 import AboutPage from "./routes/aboutPage";
-import ArithmeticsPage from "./routes/arithmeticsPage";
-import ArithmeticsInfoPage from "./routes/arithmeticsInfoPage";
+import ArithmeticsPage from "./routes/arithmeticsInstructions/arithmeticsPage";
+import ArithmeticsInfoPage from "./routes/arithmeticsInstructions/arithmeticsInfoPage";
 import ErrorPage from "./routes/errorPage";
-import BranchPage from "./routes/branchPage";
-import BranchInfoPage from "./routes/branchInfoPage";
+import BranchPage from "./routes/branchInstructions/branchPage";
+import BranchInfoPage from "./routes/branchInstructions/branchInfoPage";
 import QuizPage from "./routes/quizPage";
-import OtherInstructionsPage from "./routes/otherInstructionsPage";
-import OtherInstructionsInfoPage from "./routes/otherInstructionsInfoPage";
+import OtherInstructionsPage from "./routes/otherInstructions/otherInstructionsPage";
+import OtherInstructionsInfoPage from "./routes/otherInstructions/otherInstructionsInfoPage";
 
 const router = createBrowserRouter([
     {

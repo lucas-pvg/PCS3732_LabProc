@@ -1,0 +1,12 @@
+.card {
+    margin: 2.5rem;
+}
+
+.title {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.text {
+    font-family: 'Inconsolata', monospace;
+    text-align: justify;
+}

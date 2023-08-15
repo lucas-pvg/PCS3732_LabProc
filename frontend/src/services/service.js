@@ -7,8 +7,8 @@ const Service = {
     updateAllRegisters(data) {
         return post("register/", data)
     },
-    postInstruction(data) {
-        return post("operation/", data)
+    postOperation(data) {
+        return post("operation/", data);
     }
 };
 

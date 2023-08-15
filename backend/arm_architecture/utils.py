@@ -88,6 +88,27 @@ def identify_operation(operation, first_operand, second_operand):
 
         return leading_zeroes
 
+    if operation in ["AND"]:
+        try:
+            result = first_operand.value & second_operand.value
+        except AttributeError:
+            result = first_operand.value & second_operand["value"]
+        return result
+
+    if operation in ["EOR"]:
+        try:
+            result = first_operand.value ^ second_operand.value
+        except AttributeError:
+            result = first_operand.value ^ second_operand["value"]
+        return result
+
+    if operation in ["ORR"]:
+        try:
+            result = first_operand.value | second_operand.value
+        except AttributeError:
+            result = first_operand.value | second_operand["value"]
+        return result
+
     return "Not valid operation"
 
 

@@ -4,18 +4,14 @@ import { useState } from "react";
 
 import "./dropdown.css";
 
-const Dropdown = ({ placeholder, props }) => {
-    const [selectedOption, setSelectedOption] = useState();
-
-    const handleSelectedOptions = (data) => {
-        setSelectedOption(data);
-    };
+const Dropdown = ({placeholder, options, handleSelectedOptions, selectedOption}) => {
 
     return (
         <div className="dropdown-container">
             <Select
+                className="dropdown"
                 placeholder={placeholder}
-                options={props}
+                options={options}
                 onChange={handleSelectedOptions}
                 value={selectedOption}
                 isSearchable={true}

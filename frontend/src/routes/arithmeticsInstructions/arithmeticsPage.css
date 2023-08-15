@@ -1,0 +1,37 @@
+.arithmeticsPage {
+    margin: 2rem;
+}
+
+.imediate-switch-ap {
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+}
+
+.switch-label-ap {
+    font-family: 'Inconsolata', monospace;
+}
+
+.instrucTitle-ap {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.dropdown-row-ap {
+    border-radius: 20px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #E8D7F1;
+    margin: auto;
+}
+
+.dropdown-ap {
+    font-family: 'Inconsolata', monospace;
+}
+
+.left-div-ap {
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
