@@ -41,15 +41,9 @@ Para a aplicação, a divisão de telas foi feita a partir de cada categoria de 
 ## Configuração do backend
 
 -   `cd backend/`
-
 -   `py -m pip install pipenv`
-
 -   `pipenv install --dev --python 3.10`
-
 -   `pipenv run pre-commit install`
-
 -   `pipenv run python manage.py migrate`
-
 -   `pipenv run python manage.py createsuperuser`
-
 -   `pipenv run python manage.py runserver`
