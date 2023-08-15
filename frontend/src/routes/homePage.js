@@ -5,17 +5,16 @@ import ExpBut from "../components/home/expBut/expBut";
 
 import "./homePage.css";
 
-const HomePage = () => {
+const HomePage = () => { 
   return (
     <div className="home">
       <HomeNavbar />
       
       <div className="content">
-        <Title classes="title" />
+        <Title className="title" />
         <p className="subtitle">Simule e aprenda instruções ARM32</p>
-        <ExpBut classes="exp-but" />
+        <ExpBut className="exp-but" />
       </div>
-      
     </div>
   );
 };
