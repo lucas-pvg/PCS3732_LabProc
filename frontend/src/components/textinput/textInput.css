@@ -1,0 +1,11 @@
+.input {
+    border-color: lightgrey;
+    border-style: none;
+    height: 34px;
+    border-radius: 5px;
+    font-family: 'Inconsolata', monospace;
+    font-size: medium;
+    text-align: center;
+    width: 245px;
+    margin: 1rem;
+}

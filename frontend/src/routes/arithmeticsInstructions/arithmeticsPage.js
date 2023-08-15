@@ -6,11 +6,12 @@ import Switch from "../../components/switch/switch";
 import Navbar from "../../components/navbar/navbar";
 import ButtonGo from "../../components/buttongo/buttonGo";
 import Service from "../../services/service";
+import TextInput from "../../components/textinput/textInput";
+import AboutInstructions from "../../components/aboutinst/aboutInstructions";
 
 import "./arithmeticsPage.css";
 
 const ArithmeticsPage = () => {
-
     const operation = [
         { value: "ADD", label: "ADD" },
         { value: "SUB", label: "SUB" },
@@ -44,22 +45,7 @@ const ArithmeticsPage = () => {
     const [selectedDestination, setSelectedDestination] = useState();
     const [selectedOperand1, setSelectedOperand1] = useState();
     const [selectedOperand2, setSelectedOperand2] = useState();
-
-    var data = {
-        operation: selectedOperation,
-        registerDestination: {
-            label: selectedDestination,
-            value: 0, 
-        },
-        firstOperand: {
-            label: selectedOperand1,
-            value: 0
-        },
-        secondOperand: {
-            label: selectedOperand2,
-            value: 0,
-        }
-    }
+    const [selectedInput, setSelectedInput] = useState();
 
     const handleSelectedOperation = (data) => {
         setSelectedOperation(data);
@@ -77,20 +63,60 @@ const ArithmeticsPage = () => {
         setSelectedOperand2(data);
     };
 
+    const handleTextInput = (event) => {
+        setSelectedInput(event.target.value);
+        console.log(selectedInput);
+    };
+
+    var data = {};
+
     const onSend = () => {
-        Service.postOperation(data)
-    }
+        !isToggled
+            ? (data = {
+                  operation: selectedOperation,
+                  registerDestination: {
+                      label: selectedDestination,
+                      value: 0,
+                  },
+                  firstOperand: {
+                      label: selectedOperand1,
+                      value: 0,
+                  },
+                  secondOperand: {
+                      label: selectedOperand2,
+                      value: 0,
+                  },
+              })
+            : (data = {
+                  operation: selectedOperation,
+                  registerDestination: {
+                      label: selectedDestination,
+                      value: 0,
+                  },
+                  firstOperand: {
+                      label: selectedOperand1,
+                      value: 0,
+                  },
+                  secondOperand: {
+                      value: selectedInput,
+                  },
+              });
+
+        Service.postOperation(data);
+    };
 
     return (
         <div>
             <Navbar />
             <div className="arithmeticsPage">
                 <h1 className="instrucTitle-ap">Instruções Aritméticas</h1>
-                <Switch
-                    className="switch-ap"
-                    isToggled={isToggled}
-                    onToggle={() => setIsToggled(!isToggled)}
-                />
+                <div className="imediate-switch-ap">
+                    <p className="switch-label-ap">Imediato</p>
+                    <Switch
+                        isToggled={isToggled}
+                        onToggle={() => setIsToggled(!isToggled)}
+                    />
+                </div>
                 <div className="dropdown-row-ap">
                     <Dropdown
                         className="dropdown-ap"
@@ -113,14 +139,38 @@ const ArithmeticsPage = () => {
                         handleSelectedOptions={handleSelectedOperand1}
                         selectedOption={selectedOperand1}
                     />
-                    <Dropdown
-                        className="dropdown-ap"
-                        options={register}
-                        placeholder="Segundo Operando"
-                        handleSelectedOptions={handleSelectedOperand2}
-                        selectedOption={selectedOperand2}
-                    />
-                    <ButtonGo handleSend={onSend}/>
+                    {!isToggled && (
+                        <Dropdown
+                            className="dropdown-ap"
+                            options={register}
+                            placeholder="Segundo Operando"
+                            handleSelectedOptions={handleSelectedOperand2}
+                            selectedOption={selectedOperand2}
+                        />
+                    )}
+                    {isToggled && (
+                        <TextInput
+                            placeholder="Imediato (0b binario, 0x hexa)"
+                            handleTextInput={handleTextInput}
+                        />
+                    )}
+                    <ButtonGo handleSend={onSend} />
+                </div>
+                <div>
+                    <div className="left-div-ap">
+                        {/* {selectedOperation.value === "ADD" && (
+                            <AboutInstructions
+                                title="Informações sobre a instrução acima"
+                                info="Isso aqui é ADD"
+                            />
+                        )}
+                        {selectedOperation.value === "SUB" && (
+                            <AboutInstructions
+                                title="Informações sobre a instrução acima"
+                                info="Isso aqui é SUB"
+                            />
+                        )} */}
+                    </div>
                 </div>
             </div>
         </div>
